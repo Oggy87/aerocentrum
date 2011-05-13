@@ -1,0 +1,8 @@
+<?php //netteCache[01]000048a:1:{s:4:"time";s:21:"0.73980700 1300310506";}?><?php
+$_l = LatteMacros::initRuntime($template, NULL, 'lvdfkvqfmt'); unset($_extends);
+
+if (isset($presenter, $control) && $presenter->isAjax() && $control->isControlInvalid()) {
+	return LatteMacros::renderSnippets($control, $_l, get_defined_vars());
+}
+?>
+<p>Součástí vystoupení vrtulníku byla ukázka hasícího systému "Bumbybucket" a dále pak transport vozu Bentley a jeho předvedení divákům akce.</p>

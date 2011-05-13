@@ -1,0 +1,116 @@
+{extends '@layout.full.latte'}
+
+{var $description = 'Zpracujeme Vaši nezávaznou potptávku leteckých prací vrtulníkem..'}
+{var $keywords = 'aerocentrum, vrtulník, poptávka'}
+
+<div class="main" n:block="main">
+    <div id="demand">
+        <h1 class="cufon">{_'Poptávka nezávazné kalkulace'|upper}</h1>
+
+        <p class="intro cufon">Nechte si sestavit nezávaznou kalkulaci Váší zakázky. Vyplňte následující formulář
+        a my Vás budeme kontaktovat s konkrétním řešením.</p>
+
+        <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+        {var form => $control['demandForm']}
+        {control $form begin}
+
+        <!-- hidden fields -->
+        <div n:foreach="$form->getComponents(TRUE, 'HiddenField') as $control">{$control->control}</div>
+
+        <!-- errors -->
+        {assign errors => $form->errors}
+        <ul class="error" n:if="$errors" n:block="#errors">
+            <li n:foreach="$errors as $error">{$error}</li>
+        </ul>
+
+        <table>
+            <tr>
+                <th>{$form['name']->label}</th>
+                <td>{$form['name']->control}</td>
+                <th>{$form['company']->label}</th>
+                <td>{$form['company']->control}</td>
+            </tr>
+            <tr>
+                <th>{$form['email']->label}</th>
+                <td>{$form['email']->control}</td>
+                <th>{$form['phone']->label}</th>
+                <td>{$form['phone']->control}</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>{$form['service']->label}</th>
+                <td>{$form['service']->control}</td>
+            </tr>
+        </table>
+
+        <table id="transport1">
+            <tr n:foreach="$form['transport1']->controls as $item">
+                <th>{$item->label}</th>
+                <td>{$item->control}</td>
+            </tr>
+        </table>
+
+        <table id="transport2">
+            <tr n:foreach="$form['transport2']->controls as $item">
+                <th>{$item->label}</th>
+                <td>{$item->control}</td>
+            </tr>
+        </table>
+
+        <table id="photoflight">
+            <tr n:foreach="$form['photoflight']->controls as $item">
+                <th>{$item->label}</th>
+                <td>{$item->control}</td>
+            </tr>
+        </table>
+
+        <table id="helitaxi">
+            <tr n:foreach="$form['helitaxi']->controls as $item">
+                <th>{$item->label}</th>
+                <td>{$item->control}</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>{$form['comment']->label}</th>
+                <td>{$form['comment']->control}</td>
+            </tr>
+        </table>
+
+        <table class="submit">
+            <tr>
+                <th>&nbsp;</th>
+                <td>{$form['send']->control}</td>
+            </tr>
+        </table>
+
+        {control $form end}
+    </div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>
+
+{block #scripts}
+    {include #parent}
+    <script type="text/javascript">
+        head.ready(function() {
+            $("#frmdemandForm-service").selectbox();
+        });
+    </script>
+{/block}

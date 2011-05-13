@@ -1,0 +1,9 @@
+<?php //netteCache[01]000048a:1:{s:4:"time";s:21:"0.43668400 1305145362";}?><?php
+$_l = LatteMacros::initRuntime($template, NULL, 'iwdha8m9ri'); unset($_extends);
+
+if (isset($presenter, $control) && $presenter->isAjax() && $control->isControlInvalid()) {
+	return LatteMacros::renderSnippets($control, $_l, get_defined_vars());
+}
+?>
+A trošku **textu** 
+odstcew lwe weu *wjheb* jh we j 

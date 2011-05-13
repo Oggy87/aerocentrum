@@ -1,0 +1,17 @@
+{contentType application/atom+xml; charset=utf-8}
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>{_'Aerocentrum'}</title>
+	<link href="{link this}" rel="self" />
+	<link href="{link Homepage:}" />
+	<id>{link Homepage:}</id>
+	<updated>{=BaseModel::fetchAll('article')->where("language_id",LANG)->where("visible",1)->max("modified")|date:"c"}</updated>
+	{foreach BaseModel::fetchAll('article')->where("language_id",LANG)->where("visible",1) as $article}
+	<entry>
+		<title>{$article["title"]}</title>
+		<link href="{link Article: $article['id']}" />
+		<id>{link Article: $article['id']}</id>
+		<updated>{$article["modified"]|date:"c"}</updated>
+                <summary>{$article["perex_html"]|stripTags}</summary>
+	</entry>
+	{/foreach}
+</feed>

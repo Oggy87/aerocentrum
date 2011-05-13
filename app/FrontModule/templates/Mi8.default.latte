@@ -1,0 +1,110 @@
+{extends '@layout.classic.latte'}
+
+{var $description = 'Vrtulník Mi-8 společnosti Aerocentrum schopný unést
+        břemena do váhy 3000 kg v podvěsu a 4000 kg na palubě, jejíž velikost
+        pojme i osobní automobil.'}
+{var $keywords = 'aerocentrum, vrtulník, mi 8'}
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'Vrtulník Mi-8'|upper}</h1>
+
+    <p class="intro cufon">Legendární těžký vrtulník schopný unést
+        břemena do váhy 3000 kg v podvěsu a 4000 kg v nákladovém prostoru v trupu vtulníku, jež pojme i např. osobní automobil.</p>
+    <p>Vrtulník Mi-8 je poháněn dvěma turbohřídelovými motory.</p>
+    <p class="tip">Výhodou vrtulníku Mi-8 je operativnost v husté zástavbě při pracech nad městem.</p>
+    {='gallery/mi8-nad-polem.jpg'|image:645,330,'mi-8',TRUE,TRUE,FALSE}
+
+    <h2 class="cufon">Technické parametry vrtulníku:</h2>
+    <table>
+        <tr class="first">
+            <th>délka</th>
+            <td>25,33 m</td>
+
+            <th>maximální rychlost</th>
+            <td>250 km/h</td>
+        </tr>
+        <tr>
+            <th>výška</th>
+            <td>4,70 m</td>
+
+            <th>cestovní rychlost</th>
+            <td>220 km/h</td>
+        </tr>
+        <tr>
+            <th>průměr rotoru / počet listů</th>
+            <td>21,3 m / 5</td>
+
+            <th>stoupavost</th>
+            <td>5-8 m/s</td>
+        </tr>
+        <tr>
+            <th>normální vzletová hmotnost</th>
+            <td>11 000 kg</td>
+
+            <th>typ motoru</th>
+            <td>TV2-117A</td>
+        </tr>
+        <tr>
+            <th>maximální vzletová hmotnost</th>
+            <td>12 000 kg</td>
+
+            <th>počet motorů</th>
+            <td>2</td>
+        </tr>
+        <tr>
+            <th>hmotnost prázdného vrtulníku</th>
+            <td>7 150 kg</td>
+
+            <th>výkon motoru</th>
+            <td>1125 / 1500 kW/k</td>
+        </tr>
+        <tr>
+            <th>nosnost v nákladové kabině</th>
+            <td>4 000 kg</td>
+
+            <th>cestovní rychlost</th>
+            <td>190 km/h</td>
+        </tr>
+        <tr>
+            <th>nosnost v podvěsu</th>
+            <td>3 000 kg</td>
+
+            <th>maximální rychlost</th>
+            <td>230 km/h</td>
+        </tr>
+        <tr>
+            <th>maximální operační výška</th>
+            <td>4 500 m</td>
+
+            <th>ekonomická rychlost</th>
+            <td>160 km/h</td>
+        </tr>
+        <tr>
+            <th>počet přepravovaných osob</th>
+            <td>24</td>
+
+            <th>osádka</th>
+            <td>2 piloti </td>
+        </tr>
+        <tr>
+            <th>maximální dolet</th>
+            <td>700 km</td>
+        </tr>
+    </table>
+
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

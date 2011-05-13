@@ -1,0 +1,11 @@
+<?php //netteCache[01]000048a:1:{s:4:"time";s:21:"0.67775600 1302532560";}?><?php
+$_l = LatteMacros::initRuntime($template, NULL, 'hv4hbyzego'); unset($_extends);
+
+if (isset($presenter, $control) && $presenter->isAjax() && $control->isControlInvalid()) {
+	return LatteMacros::renderSnippets($control, $_l, get_defined_vars());
+}
+?>
+<p>
+	Velmi n&aacute;ročn&yacute; &uacute;kol pro pilota bylo usadit tři r&aacute;diov&eacute; stož&aacute;ry o v&aacute;ze až 2,4 t. V&yacute;choz&iacute;m bodem pro vzlet vrtuln&iacute;ku použit&iacute; bylo leti&scaron;tě v Barth. Po třech hodin&aacute;ch byla akce &uacute;spě&scaron;ně dokončena.</p>
+<p>
+	Pobřežn&iacute; větrn&eacute; farmy EnBW Baltik 1 bude zahrnovat &uacute;zem&iacute; o rozloze přibližně 7 km2, s 21 větrn&yacute;mi elektr&aacute;rnami o celkov&eacute; kapacitě 50 megawattů. Offshore větrn&eacute; farmy budou vyr&aacute;bět ročně 185 GWh elektřiny pro cca 50 000 dom&aacute;cnost&iacute;.</p>

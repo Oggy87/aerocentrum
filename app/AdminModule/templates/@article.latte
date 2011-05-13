@@ -1,0 +1,151 @@
+{control $form begin}
+
+    {assign errors => $form->errors}
+    <ul class="error" n:if="$errors" n:block="#entryerrors">
+        <li n:foreach="$errors as $error">{$error}</li>
+    </ul>
+
+    <fieldset>
+        <legend>Základní nastavení:</legend>
+        <div class="row">
+            <div class="label">
+            {$form['section']->label}
+            </div>
+            <div class="control">
+            {$form['section']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend>Obsah sekce:</legend>
+        <div class="row"  id="date">
+            <div class="label">
+                {$form['date']->label}
+            </div>
+            <div class="control">
+                {$form['date']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['heading']->label}
+            </div>
+            <div class="control">
+                {$form['heading']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['url_slug']->label}
+            </div>
+            <div class="control">
+                {$form['url_slug']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['perex_html']->label}
+            </div>
+            <div class="control">
+                {$form['perex_html']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row" id="perexPhoto">
+            <div class="label">
+                <label class="title" for="frmsectionForm-perexPhoto" title="<p>Úvodní foto.</p>">Foto:</label>
+            </div>
+            <div class="control">
+                {$form['perexPhoto']['name']->control}
+                {$form['perexPhoto']['tmpname']->control}
+                {$form['perexPhoto']['source']->control}
+                {$form['perexPhoto']['direction']->control}
+                <div class="actions">
+                    <div class="upload">
+                        {control upload:perexPhoto}
+                    </div>
+                    <div class="choose">
+                        <a id="choosefoto" href="#">vybrat z fotogalerie</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="thumb">
+                {snippet perexPhoto}
+                    {if isset($image)}
+                        {$image}
+                        <a class="rotate-clockwise ajax" href="{link rotate! 'direction' => '-90', 'image' => $file}" title="Otočit o 90° ve směru hod. ručiček"></a>
+                        <a class="rotate-counterclockwise ajax" href="{link rotate! 'direction' => '90', 'image' => $file}" title="Otočit o 90° proti směru hod. ručiček"></a>
+                    {else}
+                        <div class="empty ui-widget-overlay"></div>
+                    {/if}
+                {/snippet}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['text_html']->label}
+            </div>
+            <div class="control">
+                {$form['text_html']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Údaje pro vyhledávače:</legend>
+        <div class="row">
+            <div class="label">
+                {$form['title']->label}
+            </div>
+            <div class="control">
+                {$form['title']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['description']->label}
+            </div>
+            <div class="control">
+                {$form['description']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['keywords']->label}
+            </div>
+            <div class="control">
+                {$form['keywords']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Další nastavení:</legend>
+        <div class="row">
+            <div class="label">
+                {$form['visible']->label}
+            </div>
+            <div class="control">
+                {!$form['visible']->getControl('1')}
+                {!$form['visible']->getControl('0')}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </fieldset>
+
+    <div class="row submit">
+        {if isset($form['sendNext'])}{$form['sendNext']->control}{/if}
+        {$form['send']->control}
+    </div>
+
+    {control $form end}

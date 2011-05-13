@@ -1,0 +1,160 @@
+{var $title = 'video - '.$video['name_']}
+
+{block #js}
+    {include #parent}
+    <script type="text/javascript">
+        head.js("http://www.google.com/jsapi",
+                "{!$staticUri}/js/plupload.full.min.js",
+                "{!$staticUri}/js/jquery.plupload.queue.js",
+                "{!$staticUri}/js/cs.js"
+        );
+    </script>
+{/block}
+
+{block #content}
+<div id="gallery">
+        <h1>Video - {$video['name_']}</h1>
+
+        {block #breadcrumbs}
+        <div id="breadcrumbs">
+            <a n:href="Video:default">Přehled videií</a>
+            <span> » </span>
+            <span>{$video['name_']}</span>
+        </div>
+        {/block}
+
+
+    <div class="clear"></div>
+
+    <div class="controls">
+        <a href="{link confirmForm:confirmDelete! id => $presenter->getParam('id')}" class="ajax" id="galleryVideo">Smazat video</a>
+        <div class="clear"></div>
+    </div>
+    {block #flashMessage}
+        {snippet flashMessage}
+	<div id="flashes">
+		{foreach $flashes as $flash}
+		<div class="flashMessage {$flash->type}">{$flash->message}</div>
+		{/foreach}
+
+		<!--
+		<div class="flash info">Info message.</div>
+		<div class="flash success">Success message.</div>
+		<div class="flash warning">Warning message.</div>
+		<div class="flash error">Error message.</div>
+		<div class="flash validation">Validation message.</div>
+		-->
+
+	</div>
+	{/snippet}
+    {/block}
+    {var form => $presenter['videoEditForm']}
+    {control $form begin}
+    <div class="videoView">
+        <div class="video">
+            <h2>Video:</h2>
+            {$video['video_path']|video:500,342}
+        </div>
+        <div class="thumb">
+            <h2>Náhledový obrázek:</h2>
+
+            <div class="image">
+                {if $video['thumb_path']}
+                {$video['thumb_path']|image:500,342,'foto',FALSE,TRUE,FALSE}
+                <div class="play_button"></div>
+                {/if}
+            </div>
+            {control upload:videoThumb}
+
+        </div>
+        
+        <div class="clear"></div>
+
+        <h2>Údaje o videu:</h2>
+        <div class="videoEditForm">
+ 
+            <!-- hidden fields -->
+                <div n:foreach="$form->getComponents(TRUE, 'Nette\Forms\HiddenField') as $contrl">{$contrl->control}</div>
+            <!-- errors -->
+            {assign errors => $form->errors}
+                <ul class="error" n:if="$errors" n:block="#entryerrors">
+                    <li n:foreach="$errors as $error">{$error}</li>
+                </ul>
+            <!-- form -->
+
+            <div class="two">
+                <div class="item">{$form['date']->label} {$form['date']->control}</div>
+                <div class="item">{$form['visible']->label} {$form['visible']->control}</div>
+
+                <div class="clear"></div>
+            </div>
+            {var $langs = BaseModel::fetchAll('language')}
+            <div class="legend">Název:</div>
+            <table>
+            {foreach $langs as $lang}
+                <tr>
+                    <td>{$form['name_'.$lang['id']]->label}</td>
+                    <td>{$form['name_'.$lang['id']]->control}</td>
+                </tr>
+            {/foreach}
+            </table>
+            <div class="legend">Popis:</div>
+            <div class="three">
+            {foreach $langs as $lang}
+                <div class="item">
+                    <div>{$form['description_'.$lang['id']]->label}</div>
+                    <div>{$form['description_'.$lang['id']]->control}</div>
+                </div>
+            {/foreach}
+                <div class="clear"></div>
+            </div>
+            <div class="send">{$form['send']->control}</div>
+            
+        </div>
+        <div class="clear"></div>
+    </div>
+    {control $form end}
+    
+    {control confirmForm}
+    
+</div>
+{/block}
+
+{block #scripts}
+    {include #parent}
+    <script type="text/javascript">
+    head.ready(function() {
+
+    $(document).ready(function(){
+
+        $('#galleryVideo').button({
+                icons: {
+                    primary: 'ui-icon-trash'
+                }
+            })
+            .click(function() {
+                        $('#snippet-confirmForm-').dialog('open');
+            });
+
+        $("#snippet-confirmForm-").dialog("destroy");
+
+        $("#snippet-confirmForm-").dialog({
+                            autoOpen: false,
+                            modal: true,
+                            title: 'Potvrzení akce',
+                            width:590,
+                            buttons: {
+
+                            }
+        });
+
+        $("#frmform-no").livequery('click', function(event) {
+            $("#snippet-confirmForm-").dialog('close')
+        });
+
+        
+    });
+
+    });
+    </script>
+{/block}

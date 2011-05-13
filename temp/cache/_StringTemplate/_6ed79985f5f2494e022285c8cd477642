@@ -1,0 +1,8 @@
+<?php //netteCache[01]000048a:1:{s:4:"time";s:21:"0.09465400 1302536044";}?><?php
+$_l = LatteMacros::initRuntime($template, NULL, '9uqf5z9ql2'); unset($_extends);
+
+if (isset($presenter, $control) && $presenter->isAjax() && $control->isControlInvalid()) {
+	return LatteMacros::renderSnippets($control, $_l, get_defined_vars());
+}
+?>
+<p> Montáž čtyř příhradových ocelových stožárů v nepřístupném terénu 3 km od Harrachova proběhl bezchybně ve 20 minutách. <p>

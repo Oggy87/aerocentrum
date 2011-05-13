@@ -1,0 +1,46 @@
+{extends '@layout.full.latte'}
+
+{var $description = 'Videa z leteckých prací a letů vrtulníků společnosti Aerocentrum.'}
+{var $keywords = 'aerocentrum, vrtulník, video  vrtulníku'}
+
+<div class="main" n:block="main">
+    <div id="photo-video">
+        <h1 class="cufon">{_'Videa'|upper}</h1>
+        <p class="intro cufon">Prohlédněte si videa z některých našich zakázek.</p>
+
+        {control vpVideos}
+
+        <div n:foreach="$videos as $video" n:class="gallery, $iterator->isEven() ? last">
+            <a n:href="Video:view 'id' => $video['id'],'slug' => $presenter->slugify($video['name_'])" n:class="img, thumb">
+                {if $video['thumb_path']}
+                {$video['thumb_path']|image:200,158,foto,FALSE,TRUE,FALSE}
+                {/if}
+                <div class="play_button"></div>
+            </a>
+            <div class="content">
+                <h3><a n:href="Video:view 'id' => $video['id'],'slug' => $presenter->slugify($video['name_'])">{$video['name_']|truncate:100}</a></h3>
+            </div>
+            <a n:href="Video:view 'id' => $video['id'],'slug' => $presenter->slugify($video['name_'])" class="more"> » {_'přehrát video'}</a>
+        </div>
+        
+        <div class="clear"></div>
+       
+        {control vpVideos}
+
+    </div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

@@ -1,0 +1,120 @@
+{var $title = 'videogalerie'}
+
+{block #content}
+<div id="gallery">
+    <div class="top-h">
+        <h1>Videa</h1>
+        {block #breadcrumbs}
+        <div id="breadcrumbs">
+            <span>Přehled videií</span>
+        </div>
+        {/block}
+    </div>
+    <div class="top-m">
+        {*<div class="gal-langs">
+            <a n:foreach="$languages as $lang" n:href="this, 'lang' => $lang['id']" n:class="$presenter->linkCurrent ? current, lang">{$lang['id']}</a>
+            <div class="clear"></div>
+        </div>*}
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="controls">
+        <div class="panel">
+            <a n:href="upload" class="new">Nové video</a>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    {block #flashMessage}
+        {snippet flashMessage}
+	<div id="flashes">
+		{foreach $flashes as $flash}
+		<div class="flash {$flash->type}">{$flash->message}</div>
+		{/foreach}
+
+		<!--
+		<div class="flash info">Info message.</div>
+		<div class="flash success">Success message.</div>
+		<div class="flash warning">Warning message.</div>
+		<div class="flash error">Error message.</div>
+		<div class="flash validation">Validation message.</div>
+		-->
+
+	</div>
+	{/snippet}
+    {/block}
+
+    {control vpVideo}
+
+    {snippet videos}
+    <div class="galleries">
+        {if $videos->count('*') > 0}
+            {foreach $videos as $video}
+            {var $modulus = $iterator->getCounter() % 4}
+            <div n:class="video, $modulus == 0 ? last">
+                <a n:href="view, 'id' => $video['id']">
+
+                {var $img = Helpers::image($video['thumb_path'],268,178,$video['name_'],FALSE,TRUE,FALSE)}
+                {$img}
+                    <div class="play_button"></div>
+                    <div class="box">
+                        <div class="date">{$video['date']|date}</div>
+                        <div class="name">{$video['name_']}</div>
+                    </div>
+                </a>
+                <a n:href="view, 'id' => $video['id']" class="action edit">editovat</a>
+                <a href="{link confirmForm:confirmDelete! id => $video['id']}" class="ajax action delete">Smazat video</a>
+            </div>
+            {/foreach}
+        {else}
+            <div class="notice">Nebylo zatím nahráno žádné video.</div>
+        {/if}
+        <div class="clear"></div>
+    </div>
+    {/snippet}
+
+    {control vpVideo}
+    {control confirmForm}
+</div>
+{/block}
+
+{block #scripts}
+    {include #parent}
+    <script type="text/javascript">
+    head.ready(function() {
+    $(document).ready(function(){
+
+        $('.new')
+            .button({
+                icons: {
+                    primary: 'ui-icon-plusthick'
+                }
+            })
+
+        $('.delete')
+            .click(function() {
+                        $('#snippet-confirmForm-').dialog('open');
+            });
+
+        $("#snippet-confirmForm-").dialog("destroy");
+
+        $("#snippet-confirmForm-").dialog({
+                            autoOpen: false,
+                            modal: true,
+                            title: 'Potvrzení akce',
+                            width:590,
+                            buttons: {
+
+                            }
+        });
+
+        $("#frmform-no").livequery('click', function(event) {
+            $("#snippet-confirmForm-").dialog('close')
+        });
+
+    });
+
+    });
+    </script>
+{/block}

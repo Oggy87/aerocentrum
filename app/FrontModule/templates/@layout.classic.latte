@@ -1,0 +1,20 @@
+{extends '@layout.latte'}
+
+<div id="classic" n:block="content">
+    {control webStructure:breadcrumbs}
+
+    <div class="page">
+        <div class="content">
+            <div class="main-panel text">
+                {include #main}
+                {block #next}{/block}
+            </div>
+            <div class="left-panel" n:inner-block="leftPanel">
+                {control webStructure:menuPage}
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="line-darkblue"></div>
+</div>

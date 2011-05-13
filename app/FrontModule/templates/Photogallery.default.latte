@@ -1,0 +1,43 @@
+{extends '@layout.full.latte'}
+
+{var $description = 'Foto z leteckých prací a letů vrtulníků společnosti Aerocentrum.'}
+{var $keywords = 'aerocentrum, vrtulník, foto  vrtulníku'}
+
+<div class="main" n:block="main">
+    <div id="photo-video">
+        <h1 class="cufon">{_'Fotogalerie'|upper}</h1>
+        <p class="intro cufon">Prohlédněte si fotky z některých našich zakázek.</p>
+
+        {control vpGalleries}
+
+        <div n:foreach="$galleries as $gallery" n:class="gallery, $iterator->isEven() ? last">
+            <a n:href="view 'id' => $gallery['id'], 'slug' => $presenter->slugify($gallery['name_'])" n:class="img, thumb">
+                {$gallery->photo['picture_path']|image:200,158,foto,FALSE,TRUE,FALSE}
+            </a>
+            <div class="content">
+                <h3><a n:href="view 'id' => $gallery['id'], 'slug' => $presenter->slugify($gallery['name_'])">{$gallery['name_']|truncate:100}</a></h3>
+            </div>
+            <a n:href="view 'id' => $gallery['id'], 'slug' => $presenter->slugify($gallery['name_'])" class="more"> » {_'zhlédnout galerii'}</a>
+        </div>
+        
+        <div class="clear"></div>
+       
+        {control vpGalleries}
+
+    </div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

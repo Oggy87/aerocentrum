@@ -1,0 +1,37 @@
+{extends '@layout.classic.latte'}
+
+{var $description = ''}
+{var $keywords = ''}
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'Reklama na vrtulníku, reklamní lety'|upper}</h1>
+
+    {*<p class="intro cufon">V našem <strong>servisním středisku</strong> naleznete profesionální služby a
+        maximální <strong>péči v údržbě letounů</strong>. </p>
+    <p>Svěřte svůj stroj našemu
+        servisnímu středisku a Vaše létání se můžete plně
+        oddávat bez starostí. <strong>Autorizace americkým výrobcem
+            vrtulníků Robinson</strong> je samozřejmostí, stejně jako vyškolený personál.
+        Používáme <strong>pouze nové originální díly</strong> z našeho skladu
+        (v případě bežných dílů) a nebo přímo od výrobce. </p>
+    <blockquote>
+    <p><strong>To nejdůležitější v létání začíná v našem servisu.</strong></p>
+    </blockquote>*}
+
+    {='gallery/vodafone-reklama.jpg'|image:645,330,'reklama na vrtulníku',TRUE,TRUE,FALSE,FALSE,'full'}
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

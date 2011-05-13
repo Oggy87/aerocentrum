@@ -1,0 +1,53 @@
+{extends '../../templates/@layout.latte'}
+
+<a id="logo" n:href="Default:" n:block="logo"><img src="{$staticUri}/images/logo-eshop.png" width="346" height="156" alt="Aerocentrum - {_'úvodní stránka eshopu'}" /></a>
+
+{block #languages}{/block}
+
+    <div id="eshop" n:block="content">
+        <div id="eshop-top">
+            {control webStructure:breadcrumbs}
+            <div id="eshop-menu">
+                <div class="shop">
+                    <div class="cufon">{='Internetový obchod'|upper}</div>
+                    <span class="cufon">{='Vyberte kategorii »'|upper}</span>
+                </div>
+                <div class="categories" n:inner-foreach="CategoryModel::fetch() as $category">
+                    <div n:class="category-container,$presenter->getParam('id') == $category['id'] ? active">
+                        <div class="category">
+                            <a n:href=":Front:Eshop:Category: 'id' => $category['id'], 'tags' => NULL">
+                                <img src="{link Category:icon 'id' => $category['id'], 'tags' => NULL}" alt="{$category['name']}">
+                                <span>{$category['name']|upper}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="user">
+            {if $user->isLoggedIn()}
+                    <div id="basket">
+                    {var $sum = $basket->aggregation("SUM(amount * product.price)")}
+                        <div>Váš <a n:href="Basket:">nákupní košík</a> {if $sum > 0}obsahuje{/if}</div>
+                        <div n:if="$basketsum > 0">celkem zboží za <a n:href="Basket:" n:class="basket">{$sum|currencyKc}</a></div>
+                    </div>
+                    <div id="user">{var $customer = $user->getIdentity()}
+                        <a n:href=":Front:Customer:">{$customer->name} {$customer->surname}</a>
+                        <span>|</span>
+                        <a n:href="out">odhlásit</a>
+                    </div>
+            {else}
+                    <div id="basket">
+                        <div>Váš <a n:href="Basket:">nákupní košík</a> {if $basketsum > 0}obsahuje{/if}</div>
+                        <div n:if="$basketsum > 0">celkem zboží za <a n:href="Basket:" n:class="basket">{$basketsum|currencyKc}</a></div>
+                    </div>
+                    <div id="user">
+                        <a n:href=":Front:Customer:signin">Přihlášení</a>
+                        <span>|</span>
+                        <a n:href=":Front:Customer:register">Registrovat</a>
+                    </div>
+            {/if}
+                </div>
+            </div>
+        </div>
+        {include #eshoplayout}
+    </div>
+

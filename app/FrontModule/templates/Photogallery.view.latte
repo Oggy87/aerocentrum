@@ -1,0 +1,45 @@
+{extends '@layout.full.latte'}
+
+
+<div class="main" n:block="main">
+    <div id="photogallery">
+        <h1 class="cufon">{$gallery['name_']|upper}</h1>
+        <div class="meta">
+            <span class="name">{_'zhlédnutí'}:</span><span class="value">{$gallery['views']+1}</span>
+            <span class="name">{_'datum'}:</span><span class="value">{$gallery['date']|date}</span>
+        </div>
+        <a n:href="Photogallery:" class="all cufon"> « zpět na všechny foto galerie</a>
+        <div class="photos">
+        <div n:foreach="$photos as $photo" n:class="photo,$iterator->getCounter() % 3 == 0 ? last">
+            {var bigphoto = Helpers::image($photo['picture_path'], 1200, 900, $photo['description_'], TRUE,FALSE, FALSE)}
+            <a class="fancybox" rel="gallery" href="{$bigphoto->src}" title="{$photo['description_']}">
+                {$photo['picture_path']|image:280,210,$photo['description_'],TRUE,TRUE,FALSE}
+                <div n:class="description" n:if="$photo['description_']">{$photo['description_']}</div>
+            </a>
+        </div>
+        
+        <div class="clear"></div>
+        </div>
+
+        {*<div class="hr"></div>
+        <iframe src="http://www.facebook.com/plugins/like.php?href={link //this}&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
+        <div class="clear"></div>*}
+        <a n:href="Photogallery:" class="all cufon"> « zpět na všechny foto galerie</a>
+        
+    </div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

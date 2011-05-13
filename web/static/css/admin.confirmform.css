@@ -1,0 +1,10 @@
+
+div.confirm_dialog {
+    form {
+        margin-top: 10px;
+    }
+
+    p {
+        line-height: 140%;
+    }
+}

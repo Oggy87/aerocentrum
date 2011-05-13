@@ -1,0 +1,9 @@
+<?php //netteCache[01]000048a:1:{s:4:"time";s:21:"0.13404400 1301041600";}?><?php
+$_l = LatteMacros::initRuntime($template, NULL, 'bm9jcprq4h'); unset($_extends);
+
+if (isset($presenter, $control) && $presenter->isAjax() && $control->isControlInvalid()) {
+	return LatteMacros::renderSnippets($control, $_l, get_defined_vars());
+}
+?>
+<p>
+	Na tři kusy byl t&yacute;den před startem vrtuln&iacute;ku rozřez&aacute;n lamin&aacute;tov&yacute; tubus a připraven k postupn&eacute; demont&aacute;ži.Ta pak proběhla v sobotu v dopoledn&iacute;ch hodin&aacute;ch. Vys&iacute;lač se tak &nbsp;&quot;zmen&scaron;il&quot; o 16 metrů a tak sah&aacute; nově do v&yacute;&scaron;ky &nbsp;&quot;pouh&yacute;ch 70 metrů &nbsp;a vrchol kopce Vran&iacute; Vrch m&aacute; tak 754 m.n.m. &nbsp;Souč&aacute;st&iacute; demontovan&eacute;ho zař&iacute;zen&iacute; byl i tlumič v&yacute;kyvů um&iacute;stěn&yacute; uvnitř. Vys&iacute;lač &scaron;&iacute;ř&iacute;c&iacute; DVB-t sign&aacute;l multiplexu 1 o v&yacute;konu 10kW &nbsp;a dal&scaron;&iacute; radiov&eacute; služby již svůj lamin&aacute;tov&yacute; tubus nebude potřebovat a konstrukce tak ze&scaron;t&iacute;hlela o 6 tun.</p>

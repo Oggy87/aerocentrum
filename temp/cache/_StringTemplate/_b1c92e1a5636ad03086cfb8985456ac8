@@ -1,0 +1,8 @@
+<?php //netteCache[01]000048a:1:{s:4:"time";s:21:"0.71187100 1304415993";}?><?php
+$_l = LatteMacros::initRuntime($template, NULL, '423wdtdn7k'); unset($_extends);
+
+if (isset($presenter, $control) && $presenter->isAjax() && $control->isControlInvalid()) {
+	return LatteMacros::renderSnippets($control, $_l, get_defined_vars());
+}
+?>
+<p>Po ukončení akce byla replika vozu F1 bezpečně přepravena na Strahovský stadion a předána zpět pořadateli. </p> 

@@ -1,0 +1,304 @@
+{var $title = 'nový článek'}
+
+{block #css}
+    {include #parent}
+    {control css '../texyla/css/style.css'}
+{/block}
+
+{block #js}
+    {include #parent}
+    <script type="text/javascript">
+        head.js("http://www.google.com/jsapi",
+                "{!$staticUri}/js/plupload.full.min.js",
+                "{!$staticUri}/js/jquery.plupload.queue.js",
+                "{!$staticUri}/js/cs.js",
+                "{!$staticUri}/js/jquery.tourl.js",
+                "{!$staticUri}/texyla/js/texyla.js",
+                "{!$staticUri}/texyla/js/selection.js",
+                "{!$staticUri}/texyla/js/texy.js",
+                "{!$staticUri}/texyla/js/buttons.js",
+                "{!$staticUri}/texyla/js/dom.js",
+                "{!$staticUri}/texyla/js/view.js",
+                "{!$staticUri}/texyla/js/ajaxupload.js",
+                "{!$staticUri}/texyla/js/window.js",
+                "{!$staticUri}/texyla/languages/cs.js",
+                "{!$staticUri}/texyla/plugins/table/table.js"
+        );
+    </script>
+{/block}
+
+{block #content}
+<div id="article">
+
+    <h1>Články</h1>
+    {block #breadcrumbs}
+        <div id="breadcrumbs">
+             <a n:href="default">Přehled článků</a>
+            <span> » </span>
+            <span>nový článek</span>
+        </div>
+    {/block}
+
+    <div class="clear"></div>
+
+    {block #flashMessage}
+        {snippet flashMessage}
+	<div id="flashes">
+		{foreach $flashes as $flash}
+		<div class="flashMessage {$flash->type}">{$flash->message}</div>
+		{/foreach}
+
+		<!--
+		<div class="flash info">Info message.</div>
+		<div class="flash success">Success message.</div>
+		<div class="flash warning">Warning message.</div>
+		<div class="flash error">Error message.</div>
+		<div class="flash validation">Validation message.</div>
+		-->
+
+	</div>
+	{/snippet}
+    {/block}
+
+    {control $form begin}
+
+    {assign errors => $form->errors}
+    <ul class="error" n:if="$errors" n:block="#entryerrors">
+        <li n:foreach="$errors as $error">{$error}</li>
+    </ul>
+
+    <fieldset>
+        <legend>Základní nastavení:</legend>
+        <div class="row">
+            <div class="label">
+            {$form['section']->label}
+            </div>
+            <div class="control">
+            {$form['section']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend>Obsah sekce:</legend>
+        <div class="row"  id="date">
+            <div class="label">
+                {$form['date']->label}
+            </div>
+            <div class="control">
+                {$form['date']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['heading']->label}
+            </div>
+            <div class="control">
+                {$form['heading']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['url_slug']->label}
+            </div>
+            <div class="control">
+                {$form['url_slug']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['perex_html']->label}
+            </div>
+            <div class="control">
+                {$form['perex_html']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row" id="perexPhoto">
+            <div class="label">
+                <label class="title" for="frmsectionForm-perexPhoto" title="<p>Úvodní foto.</p>">Foto:</label>
+            </div>
+            <div class="control">
+                {$form['perexPhoto']['name']->control}
+                {$form['perexPhoto']['tmpname']->control}
+                {$form['perexPhoto']['source']->control}
+                {$form['perexPhoto']['direction']->control}
+                <div class="actions">
+                    <div class="upload">
+                        {control upload:perexPhoto}
+                    </div>
+                    <div class="choose">
+                        <a id="choosefoto" href="#">vybrat z fotogalerie</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="thumb">
+                {snippet perexPhoto}
+                    {if isset($image)}
+                        {$image}
+                        <a class="rotate-clockwise ajax" href="{link rotate! 'direction' => '-90', 'image' => $file}" title="Otočit o 90° ve směru hod. ručiček"></a>
+                        <a class="rotate-counterclockwise ajax" href="{link rotate! 'direction' => '90', 'image' => $file}" title="Otočit o 90° proti směru hod. ručiček"></a>
+                    {else}
+                        <div class="empty ui-widget-overlay"></div>
+                    {/if}
+                {/snippet}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['text_html']->label}
+            </div>
+            <div class="control">
+                {$form['text_html']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Údaje pro vyhledávače:</legend>
+        <div class="row">
+            <div class="label">
+                {$form['title']->label}
+            </div>
+            <div class="control">
+                {$form['title']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['description']->label}
+            </div>
+            <div class="control">
+                {$form['description']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="row">
+            <div class="label">
+                {$form['keywords']->label}
+            </div>
+            <div class="control">
+                {$form['keywords']->control}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Další nastavení:</legend>
+        <div class="row">
+            <div class="label">
+                {$form['visible']->label}
+            </div>
+            <div class="control">
+                {!$form['visible']->getControl('1')}
+                {!$form['visible']->getControl('0')}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </fieldset>
+
+    <div class="row submit">
+        {if isset($form['sendNext'])}{$form['sendNext']->control}{/if}
+        {$form['send']->control}
+    </div>
+
+    {control $form end}
+
+
+     <div id="dialogPhotos">
+     {snippet dialogPhotos}
+        {include dialogPhotos.latte}
+     {/snippet}
+    </div>
+</div>
+
+{/block}
+
+{block #scripts}
+    {include #parent}
+    <script type="text/javascript">
+    head.ready(function() {
+    $(document).ready(function(){
+
+        var defaultOptions = {
+            baseDir: '{!$staticUri}/texyla',
+            previewPath: '{!$presenter->link("Texyla:preview")}',
+            filesPath: '{!$presenter->link("Texyla:listFiles")}',
+            filesUploadPath: '{!$presenter->link("Texyla:upload")}',
+            filesMkDirPath: '{!$presenter->link("Texyla:mkDir")}',
+            filesRenamePath: '{!$presenter->link("Texyla:rename")}',
+            filesDeletePath: '{$presenter->link("Texyla:delete")}',
+
+            toolbar: ['h2','h3','h4','bold', 'italic', null, 'ul', 'ol', null, 'sup','sub',null,'link', null, "table", null]
+        };
+        
+        var perex_options = {
+            toolbar: ['bold', 'italic', null,'sup','sub',null,'link']
+        }
+
+        $.texyla.setDefaults(defaultOptions);
+
+        $("[name=perex_html]").texyla(perex_options);
+        $("[name=text_html]").texyla();
+
+        $('[name=heading]').tourl({ id : 'frmarticleForm-url_slug'});
+
+        $('#choosefoto')
+            .button({
+                icons: {
+                    primary: 'ui-icon-triangle-1-s'
+                }
+        });
+
+        $("#dialogPhotos").dialog("destroy");
+        $("#dialogPhotos").dialog({
+                        autoOpen: false,
+                        modal: true,
+                        title: 'Vyberte foto',
+                        width:890,
+                        height:670,
+                        buttons: {
+                            Ok: function() {
+
+                                id = $('.fotos > #select > img').attr('id').replace("f","");
+
+                                if (id) {
+                                    $.get({link getPhoto!}, {'photo_id': id}, function(payload) {
+                                        tmpname = payload.photo;
+
+                                        $.get({link imageThumb!}, {'tmpname': tmpname}, function(payload) {
+
+                                            for(var id in payload.snippets) {
+                                                jQuery.nette.updateSnippet(id, payload.snippets[id]);
+                                            }
+                                            $("[name='perexPhoto[name]']").val(tmpname);
+                                            $("[name='perexPhoto[tmpname]']").val(tmpname);
+
+                                            $("[name='perexPhoto[source]']").val('photo');
+                                        });
+                                    });
+
+                                    $(this).dialog("close");
+                                }
+                            }
+
+                        }
+        });
+        $('#choosefoto')
+            .click(function() {
+                        $('#dialogPhotos').dialog('open');
+            });
+    });
+    });
+    </script>
+{/block}
+
+

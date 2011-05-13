@@ -1,0 +1,135 @@
+{var $title = 'napsali o nás'}
+
+{block #content}
+<div id="press">
+    <div class="top-h">
+        <h1>Napsali o nás</h1>
+        {block #breadcrumbs}
+        <div id="breadcrumbs">
+            <span>Přehled článků v tisku</span>
+        </div>
+        {/block}
+    </div>
+    <div class="top-m">
+        {*<div class="gal-langs">
+            <a n:foreach="$languages as $lang" n:href="this, 'lang' => $lang['id']" n:class="$presenter->linkCurrent ? current, lang">{$lang['id']}</a>
+            <div class="clear"></div>
+        </div>*}
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="controls">
+        <div class="panel">
+            <div class="new">Nový článek</div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    {block #flashMessage}
+        {snippet flashMessage}
+	<div id="flashes">
+		{foreach $flashes as $flash}
+		<div class="flashMessage {$flash->type}">{$flash->message}</div>
+		{/foreach}
+
+		<!--
+		<div class="flash info">Info message.</div>
+		<div class="flash success">Success message.</div>
+		<div class="flash warning">Warning message.</div>
+		<div class="flash error">Error message.</div>
+		<div class="flash validation">Validation message.</div>
+		-->
+
+	</div>
+	{/snippet}
+    {/block}
+
+    {control vpPress}
+
+    {snippet videos}
+    <div class="press">
+        <div n:foreach="$press as $article" n:class="article">
+            <div class="top"><span class="date">{$article['date']|date}</span><span class="medium">{$article['medium']}</span></div>
+            <div class="link"><a href="{$article['url']}" target="_blank" n:class="blank">{$article['title']}</a></div>
+            <div class="actions">
+                <a n:href="edit! 'id' => $article['id']" n:class="ajax,edit">editovat</a>
+                <a n:href="delete! 'id' => $article['id']" n:class="ajax,delete">smazat</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    {/snippet}
+
+    {control vpPress}
+
+    <div id="dialog">
+    {snippet pressForm}
+        {control pressForm}
+    {/snippet}
+    </div>
+
+    <div id="dialogEdit">
+    {snippet pressEditForm}
+        {control pressEditForm}
+    {/snippet}
+    </div>
+</div>
+
+{/block}
+
+{block #scripts}
+    {include #parent}
+    <script type="text/javascript">
+    head.ready(function() {
+    $(document).ready(function(){
+
+        $('.new')
+            .button({
+                icons: {
+                    primary: 'ui-icon-plusthick'
+                }
+            })
+            .click(function() {
+                        $('#dialog').dialog('open');
+            });
+
+        $("#dialog").dialog("destroy");
+
+        $("#dialog").dialog({
+                        autoOpen: false,
+                        modal: true,
+                        title: 'Galerie',
+                        width:700
+                      /*  buttons: {
+                            Uložit: function() {
+
+                                $(this).dialog("close");
+                            }
+                        }*/
+         });
+
+         $("#dialogEdit").livequery( function() {
+            $("#dialogEdit").dialog({
+			autoOpen: false,
+			//height: 300,
+			width: 700,
+                        title: 'Upravit článek',
+			modal: true
+
+            });
+         });
+         
+         $('.edit')
+                .click(function() {
+                        $('#dialogEdit').dialog('open');
+         });
+
+
+    });
+
+    });
+    </script>
+{/block}
+
+

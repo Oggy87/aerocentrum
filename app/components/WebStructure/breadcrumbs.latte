@@ -1,0 +1,12 @@
+<div id="breadcrumbs">
+    <a href="{plink :Front:Homepage:}" n:class="breadcrumb">AEROCENTRUM</a>
+    <span> » </span>
+    {foreach $items as $pathItem}
+        {if $pathItem->url}
+            <a n:class="breadcrumb,$pathItem->isCurrent ? current" href="{if $pathItem->args}{$presenter->link($pathItem->url, $pathItem->args)}{else}{$presenter->link($pathItem->url)}{/if}">{$pathItem->label}</a>
+        {else}
+            <span>{$pathItem->label}</span>
+        {/if}
+        {if $iterator->isLast()}{else}<span> » </span>{/if}
+    {/foreach}
+</div>

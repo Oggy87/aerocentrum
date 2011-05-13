@@ -1,0 +1,18 @@
+{extends '@layout.latte'}
+
+<div id="classic" n:block="eshoplayout">
+    <div class="page">
+        <div class="content">
+            <div class="main-panel text">
+                {include #main}
+                {block #next}{/block}
+            </div>
+            <div class="left-panel" n:inner-block="leftPanel">
+                
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="line-darkblue"></div>
+</div>

@@ -1,0 +1,66 @@
+{var $title = 'nahrát fotky - '.$gallery['name_']}
+
+{block #css}
+    {include #parent}
+    {control css 'plupload.queue.css'}
+{/block}
+
+{block #js}
+    {include #parent}
+    <script type="text/javascript">
+        head.js("http://www.google.com/jsapi",
+                "{!$staticUri}/js/plupload.full.min.js",
+                "{!$staticUri}/js/jquery.plupload.queue.js",
+                "{!$staticUri}/js/cs.js"
+        );
+    </script>
+{/block}
+
+{block #content}
+<div id="gallery">
+    {block #breadcrumbs}
+    <div id="breadcrumbs">
+        <a n:href="Photo:default">Přehled galerií</a>
+        <span> » </span>
+        <a n:if="$gallery['type'] == GalleryModel::WEB" n:href="storage">úložné</a>
+        <a n:if="$gallery['type'] == GalleryModel::WEB" n:href="default"></a>
+        <span> » </span>
+        <a n:href="Photo:view 'id' => $gallery['id']">
+            {if $gallery['date']}{$gallery['date']|date} - {/if}{$gallery['name_']}
+        </a>
+        <span> » </span>
+        <a n:href="upload">nahrát fotky</a>
+    </div>
+    {/block}
+    <div class="controls">
+
+        <div class="clear"></div>
+    </div>
+    {block #flashMessage}
+        {snippet flashMessage}
+	<div id="flashes">
+		{foreach $flashes as $flash}
+		<div class="flashMessage {$flash->type}">{$flash->message}</div>
+		{/foreach}
+
+		<!--
+		<div class="flash info">Info message.</div>
+		<div class="flash success">Success message.</div>
+		<div class="flash warning">Warning message.</div>
+		<div class="flash error">Error message.</div>
+		<div class="flash validation">Validation message.</div>
+		-->
+
+	</div>
+	{/snippet}
+    {/block}
+
+    {snippet multi}
+       {control multiUploadForm begin}
+       {control multiUpload:photo}
+       {$control['multiUploadForm']['save']->control}
+       {control multiUploadForm end}
+    {/snippet}
+
+</div>
+{/block}

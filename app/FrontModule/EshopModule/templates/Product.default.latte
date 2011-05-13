@@ -1,0 +1,31 @@
+{extends '@layout.full.latte'}
+
+{var $title = $product['name']}
+
+<div class="main" n:block="main">
+
+    <div id="productdetail">
+        <div class="image">
+        {if $product['picture']}
+            {$product['picture']|imageDb:'product'.$product['id'],$product['modified'],438,328,$product['name'],TRUE,TRUE,FALSE}
+        {/if}
+        </div>
+        <div class="product-data">
+            <h1 class="cufon">{$product['name']}</h1>
+            <div n:foreach="$product->product_tag() as $product_tag" class="meta">
+                        {var $tagGroup = BaseModel::fetchRow('tagGroup',$product_tag->tag['tagGroup_id'])}
+                <span>{$tagGroup['name']}:</span>{$product_tag->tag['value']}
+            </div>
+            <div class="price">
+                Cena: {$product['price']|currencyKc} s DPH
+            </div>
+            {!$product['description_html']}
+        </div>
+
+        <div class="clear"></div>
+        <div class="buttons">
+            <a n:class="basket" n:href="addToBasket! 'product_id' => $product['id'], 'tags' => NULL">Do košíku</a>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,96 @@
+{if isset($gallery)}
+
+    <div id="breadcrumbs">
+        {if $gallery['type'] == GalleryModel::WEB}
+        <a href="{link web!}" class="ajax">Vyberte galerii</a>
+        {elseif $gallery['type'] == GalleryModel::STORAGE}
+        <a href="{link storage!}" class="ajax">Vyberte galerii</a>
+        {/if}
+        <span> » </span>
+        <span>Vyberte foto</span>
+    </div>
+
+
+    {if count($photos) > 0}
+        <div class="fotos">
+        {foreach $photos as $foto}
+            {var $modulus = $iterator->getCounter() % 3}
+            <div n:class="foto,$modulus == 0 ? 'last'">
+            {$foto['picture_path']|image:260,170,$foto['description_'],TRUE,FALSE,FALSE,FALSE,NULL,'f'.$foto['id']}
+            </div>
+        {/foreach}
+        </div>
+
+    {else}
+        <div class="notice">Žádné foto zatím nebylo nahráno.</div>
+    {/if}
+    <div class="clear"></div>
+
+<script type="text/javascript">
+head.ready(function() {
+    $(document).ready(function(){
+        $('.foto').click(function() {
+            $('.fotos > .foto').removeAttr('id');
+            $(this).attr('id', 'select');
+        });
+
+    });
+});
+</script>
+{else}
+    {if $type == GalleryModel::WEB}
+    <div id="breadcrumbs">
+        <span>Vyberte galerii</span>
+        <span> » </span>
+        <span>web</span>
+    </div>
+
+    <div class="tabs">
+        <div class="tab current">webové</div>
+        <div class="tab"><a href="{link storage!}" class="ajax">úložné</a></div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div class="ajaxPaginator">{control vpGallery}</div>
+    {else if $type = GalleryModel::STORAGE}
+    <div id="breadcrumbs">
+        <span>Vyberte galerii</span>
+        <span> » </span>
+        <span>úložné</span>
+    </div>
+
+    <div class="tabs">
+        <div class="tab"><a href="{link web!}" class="ajax">webové</a></div>
+        <div class="tab current">úložné</div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div class="ajaxPaginator">{control vpStorageGallery}</div>
+    {/if}
+    <div class="galleries">
+        {if count($galleries) > 0}
+            {foreach $galleries as $gallery}
+            {var $modulus = $iterator->getCounter() % 3}
+            <a href="{link gallery!, 'id' => $gallery['id']}" n:class="ajax,gallery,$modulus == 0 ? 'last'">
+                {if $gallery['photo_id']}
+                    {$gallery->photo['picture_path']|image:270,180,$gallery->photo['description_'],TRUE,TRUE}
+                {/if}
+                <div class="box">
+                    <div class="date">{$gallery['date']|date}</div>
+                    <div class="name">{$gallery['name_']}</div>
+                </div>
+            </a>
+            {/foreach}
+        {else}
+            <div class="notice">Nebyla zatím vytvořena žádná galerie.</div>
+        {/if}
+        <div class="clear"></div>
+    </div>
+    {if $type == GalleryModel::WEB}
+    <div class="ajaxPaginator">{control vpGallery}</div>
+    {else if $type = GalleryModel::STORAGE}
+    <div class="ajaxPaginator">{control vpStorageGallery}</div>
+    {/if}
+{/if}

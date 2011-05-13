@@ -1,0 +1,72 @@
+{extends '../../templates/@layout.latte'}
+{var $robots = noindex,nofollow}
+{var $layout_title = ' administrace Aerocentrum'}
+
+{block #css}
+    {include #parent}
+    {control css 'admin.screen.css','jquery-ui/cupertino/jquery-ui-1.8.12.custom.css'}
+{/block}
+
+{block #js}
+    {include #parent}
+    <script type="text/javascript">
+         head.js("{!$staticUri}/js/jquery.blockUI.js",
+                 "{!$staticUri}/js/jquery.ui.datepicker-cs.js"
+          );
+    </script>
+{/block}
+
+{block layout}
+    <div id="head" n:block="#header">
+        <div class="user">
+            <div>Přihlášen jako <strong>{$user->surname} {$user->name}</strong></div>
+            <div class="logged-menu">
+                <a n:href="Settings:">Nastavení</a> |
+                <a n:href="Sign:out">Odhlásit</a>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a n:href="Default:" n:class="$presenter->linkCurrent ? 'navigation-item-active navigation-item' : 'navigation-item'">Nástěnka</a>
+            <a n:href="Article:" n:class="$presenter->isLinkCurrent('Article:*') ? 'navigation-item-active navigation-item' : 'navigation-item'">Články</a>
+            <a n:href="Photo: 'id' => NULL" n:class="$presenter->isLinkCurrent('Photo:*') ? 'navigation-item-active navigation-item' : 'navigation-item'">Foto</a>
+            <a n:href="Video:" n:class="$presenter->isLinkCurrent('Video:*') ? 'navigation-item-active navigation-item' : 'navigation-item'">Video</a>
+            <a n:href="Press:" n:class="$presenter->isLinkCurrent('Press:*') ? 'navigation-item-active navigation-item' : 'navigation-item'">Napsali o nás</a>
+        </div>
+    </div>
+    <div class="content">
+        {include #content}
+        <div class="clear"></div>
+    </div>
+{/block}
+
+{block #scripts}
+    {include #parent}
+    <script type="text/javascript">
+
+    head.ready(function() {
+        $(document).ready( function() {
+
+            $(document).ajaxStart(function() {
+                $.blockUI({ message: '<h1><img src="{!$staticUri}/images/admin.busy.gif" /> Chvílí strpení...</h1>' });
+            });
+
+            $(document).ajaxStop($.unblockUI);
+
+            $('input.datepicker').datepicker($.datepicker.regional['cs'],{
+                duration: 'fast',
+                dateFormat: 'd.m.yy',
+                changeMonth: true,
+                changeYear: true,
+                showOtherMonths: true,
+                selectOtherMonths: true
+            });
+
+            $("input.button:not(.action)").livequery( function() {
+                $(this).button();
+            });
+            
+        });
+    });
+    </script>
+{/block}

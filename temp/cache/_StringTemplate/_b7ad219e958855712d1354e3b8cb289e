@@ -1,0 +1,9 @@
+<?php //netteCache[01]000048a:1:{s:4:"time";s:21:"0.64117800 1300270395";}?><?php
+$_l = LatteMacros::initRuntime($template, NULL, 's8sn3gkjvo'); unset($_extends);
+
+if (isset($presenter, $control) && $presenter->isAjax() && $control->isControlInvalid()) {
+	return LatteMacros::renderSnippets($control, $_l, get_defined_vars());
+}
+?>
+<p>Dne 4.1.2011 jsme zah&aacute;jili pracovn&iacute; rok jedn&iacute;m z nejtěž&scaron;&iacute;ch břemen přen&aacute;&scaron;en&yacute;ch v zastavěn&yacute;ch oblastech vůbec a to chlad&iacute;c&iacute; jednotkou (tzv. Chillerem) v&aacute;ž&iacute;c&iacute; bezm&aacute;la 3 tuny. Vzhledem k teplotě okoln&iacute;ho vzduchu kter&aacute; byla v době kon&aacute;n&iacute; -8&deg;C v&scaron;ak hmotnost nepředstavovala ž&aacute;dn&yacute; probl&eacute;m a agreg&aacute;t byl v 10 minut&aacute;ch na sv&eacute;m m&iacute;stě.</p>
+<p> Budova Casablanca je zn&aacute;m&aacute; nejen v&yacute;&scaron;kou budovy (75m) ale i jehlanem um&iacute;stěn&yacute;m na stře&scaron;e t&eacute;to budovy a tento jehlan m&aacute; v&yacute;&scaron;ku dal&scaron;&iacute;ch 15 m a obsahuje velk&eacute; množstv&yacute; telekomunikačn&iacute;ch ant&eacute;n. Vzhledem k tomu že se klimatizace usazovala na niž&scaron;&iacute; č&aacute;st budovy, bylo nutn&eacute; přesn&eacute; přibl&iacute;žen&iacute; k budově a dokonal&aacute; pilot&aacute;ž ve visu s takto těžk&yacute;m břemenem. Vzd&aacute;lenost m&iacute;sta usazen&iacute; a stěně budovy byla cca 25m. V&scaron;em div&aacute;kům t&eacute;to akce se tak naskytl zaj&iacute;mav&yacute; pohled na vrtuln&iacute;k v netradičn&iacute; poloze v kr&aacute;sn&eacute;m jasn&eacute;m mraziv&eacute;m počas&iacute;.</p>

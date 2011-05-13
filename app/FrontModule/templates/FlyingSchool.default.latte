@@ -1,0 +1,125 @@
+{extends '@layout.classic.latte'}
+
+{var $description = 'Letecká škola pro výcvik pilotů vrtulníků. Absolvent leteckého výcviku získá Průkaz způsobilosti soukromého pilota vrtulníku'}
+{var $keywords = 'aerocentrum, letecká škola, výcvik pilotů, pilotní škola, letecký výcvik, pilot vrtulníku'}
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'Letecká škola pro vrtulníky'|upper}</h1>
+
+   {* <div class="contentmenu">
+        <strong>Navigace:</strong>
+        <a href="#pozadavky">požadavky před vstupem do kursu</a>
+        <a href="#pruben">průběh kurzu</a>
+        <a href="#ceny">ceny ve výcviku</a>
+    </div>*}
+    
+    <p class="cufon intro">Letecká společnost <strong>Aerocentrum spol. s r.o.</strong> je
+        <strong>registrovaným zařízením pro výcvik pilotů vrtulníků</strong>.</p>
+    <blockquote>
+    <p>Kurz je vedených nejlepšími odborníky v ČR díky se zkušenostem z ostrého provozu na
+        moři i v horách.</p>
+    </blockquote>
+    <p>Absolvent leteckého výcviku získá Průkaz způsobilosti soukromého pilota
+        vrtulníku - Private Pilot License (Helicopters) - <strong>PPL(H) Licence soukromého pilota
+            vrtulníků</strong>. Tato pilotní licence umožňuje vykonávat, ne však za úplatu,
+        funkci velícího pilota nebo druhého pilota kteréhokoliv vrtulníku nasazeného
+        na neobchodní lety.</p>
+
+    <p>Veškerý výcvik je provádeň plně v souladu s <strong>evropskými leteckými předpisy
+            JAA (JAR-FCL 2)</strong> a po získání národního průkazu nebo kvalifikace, umožňuje držiteli
+        létání na příslušném typu vrtulníku.</p>
+
+    <p class="tip">Cílem společnosti je vyškolit co nejefektivnějším způsobem plně připraveného soukromého
+        pilota, který bude schopen bezpečně ovládat vrtulník ve všech letových situacích včetně
+        nouzových postupů.</p>
+
+    <h2 class="cufon" id="pozadavky">Požadavky před vstupem do kursu:</h2>
+    <ul>
+        <li>Minimální věk pro vykonání zkoušky PPL je 17 let. Do věku 18 let lze takovýto výcvik
+            zahájit jen s písemným souhlasem jeho zákonných zástupců.</li>
+
+        <li>Potvrzení zdravotní způsobilosti 2.třídy - nutno absolvovat vstupní prohlídku v ústavu pro
+            letecké zdravotnictví v Praze (úLZ).</li>
+
+        <li>Získání Všeobecného nebo Omezeného vysvědčení radiotelefonisty u ČTú.
+            Pomůžeme zajisti, nutno získat nejpozději do prvního samostatného letu.</li>
+    </ul>
+
+    <h2 class="cufon" id="prubeh">Průběh kurzu:</h2>
+
+    <h3 class="cufon">Teorie:</h3>
+
+    <p>Teoretická předletová příprava probíhá v prostorách firmy Aerocentrum na letišti
+        Mělník - Hořín.</p>
+
+    <p>Teorie v rozsahu <strong>cca 50 hodin</strong> probíhá formou <strong>přednášek a konzultací</strong>,
+        druhá část teoretické přípravy probíhá formou samostudia a konzultací. Pomůžeme se
+        zajíštěním potřebných materiálů.</p>
+
+    <h4 class="cufon">Osnova teoretické části obsahuje:</h4>
+
+    <p>letecký zákon, všeobecné znalosti letadla, plánování a provedení letu, lidskou výkonnost a
+        omezení, meteorologii, navigaci, provozní postupy, základy letu a komunikace</p>
+
+    <h3 class="cufon">Praxe:</h3>
+
+    <p>Minimální nálet pro získání PPL(H) je <strong>45 letových hodin</strong>, přičemž držitelům jiného
+        průkazu způsobilosti pilota je možné započíst až 6 hodin letecké praxe, včetně ultra-lehkých letadel, celkový
+        nálet je tedy min. 39 hodin.</p>
+
+    <p>Výcvik létáme na vrtulníku typu <a n:href="R22:">Robinson R-22 Beta II</a> nebo v případě zájmu
+        na typu <a n:href="R44:">Robinson R-44</a>.</p>
+
+    <h4 class="cufon">Osnova letové výuky PPL(H):</h4>
+
+    <ol>
+        <li>předletové činnosti zahrnující určení hmotnosti a vyvážení, kontrolu a ošetření vrtulníku</li>
+        <li>letištní provoz a uspořádání letového provozu, opatření a
+            postupy k zabránění srážkám</li>
+        <li>řízení vrtulníku podle vnější vizuální orientace</li>
+        <li>vzlety, přístání, visení, manévry během visení, zatáčky s výhledem a obvyklé přechody z a do visení</li>
+        <li>nouzové postupy, základní autorotace, simulovaná porucha motoru, vyrovnání přízemního efektu (pozemní rezonance),
+            souvisí-li s typem, rozpoznání a vyrovnání vznikajícího vírového prstence atd.</li>
+        <li>autorotace s dosednutím, přistání se simulací vypnutého motoru, cvičná vynucená přistání,
+            simulování nesprávné činnosti vybavení a nouzové postupy vztahující se k nesprávným činnostem motoru,
+            ovládacíh prvků, elektrických a hydraulických okruhů</li>
+        <li>ostré zatáčky</li>
+        <li>přechody, rychlá zastavení, manévry v závětří, vzlety a přistání na svazích</li>
+        <li>lety s omezeným výkonem a v omezeném prostoru, včetně výběru a letů na a z nepřipravených míst</li>
+        <li>lety pouze podle základních letových přístrojů, včetně provedení zatáčky v horizontu o 180&deg; a vyrovnání
+            neobvyklých letových poloh k simulování neúmyslného vlétnutí do oblaku</li>
+        <li>přelety s použitím orientace, navigace výpočtem a kde jsou k dispozici, radionavigačních prostředků</li>
+        <li>přílety, odlety a přelety řízených letišť, plnění postupů letových provozních služeb, postupy komunikace a frazeologie</li>
+    </ol>
+
+    <h3 class="cufon">Závěr kuzru:</h3>
+
+    <p>Teoretická zkouška se skládá na úřadu pro civilní letectví formou testu. Praktické dovednosti ověří
+        zkušební examinátor pověřený úřadem pro civilní letectví.</p>
+
+    <h2 class="cufon" id="ceny">Ceny ve výcviku:</h2>
+
+    <p>Za jednu letovou hodinu výcviku u <strong><a n:href="R22:">vrtulníku R22</a></strong> účtujeme<strong> 6.900,- Kč</strong>, u <strong>
+            <a n:href="R44:">vrtulníku R44</a> 14.900,- Kč</strong>. V případě, že výcvik probíhá o víkendu, účtuje se
+        příplatek za sobotu 450,- Kč a neděli 600,- Kč/den. Za jednu hodinu výuky teorie účtujeme 300,- Kč. Uvedené ceny jsou bez DPH.</p>
+    <blockquote>
+    <p><strong>S každým zájemcem o výcvik jednáme individuálně</strong>, proto vřele doporučujeme osobní návštěvu u
+        nás v Mělníku, kterou je možno spojit s <strong>předváděcím letem s instruktorem</strong>, kde se dozvíte další podrobnosti.
+        V případě zájmu o jakékoliv další informace nás neváhejte kontaktovat.</p>
+    </blockquote>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

@@ -1,0 +1,92 @@
+{extends '@layout.full.latte'}
+
+{var $description = 'Foto a video z leteckých prací a letů vrtulníků společnosti Aerocentrum.'}
+{var $keywords = 'aerocentrum, vrtulník, foto  vrtulníku, video  vrtulníku'}
+
+<div class="main" n:block="main">
+    <div id="photo-video">
+        <h1 class="cufon">{_'Foto a video'|upper}</h1>
+        <p class="intro cufon">Prohlédněte si <a n:href="Photogallery:">fotky</a> a <a n:href="Video:">videa</a>
+        z některých našich zakázek.</p>
+
+        <h2 class="cufon">Nejnovější fotogalerie a videa</h2>
+        
+        <div n:foreach="$newgalleries as $gallery" n:class="gallery, $iterator->isEven() ? last">
+            <a n:href="Photogallery:view 'id' => $gallery['id'], 'slug' => $presenter->slugify($gallery['name_'])" n:class="img, thumb">
+                {$gallery->photo['picture_path']|image:200,158,foto,FALSE,TRUE,FALSE}
+            </a>
+            <div class="content">
+                <h3><a n:href="Photogallery:view 'id' => $gallery['id'], 'slug' => $presenter->slugify($gallery['name_'])">{$gallery['name_']|truncate:100}</a></h3>
+            </div>
+            <a n:href="Photogallery:view 'id' => $gallery['id'], 'slug' => $presenter->slugify($gallery['name_'])" class="more"> » {_'zhlédnout galerii'}</a>
+        </div>
+        
+        <div class="clear"></div>
+
+        <div n:foreach="$newvideos as $video" n:class="gallery, $iterator->isEven() ? last">
+            <a n:href="Video:view 'id' => $video['id'],'slug' => $presenter->slugify($video['name_'])" n:class="img, thumb">
+                {if $video['thumb_path']}
+                {$video['thumb_path']|image:200,158,foto,FALSE,TRUE,FALSE}
+                {/if}
+                <div class="play_button"></div>
+            </a>
+            <div class="content">
+                <h3><a n:href="Video:view 'id' => $video['id'],'slug' => $presenter->slugify($video['name_'])">{$video['name_']|truncate:100}</a></h3>
+            </div>
+            <a n:href="Video:view 'id' => $video['id'],'slug' => $presenter->slugify($video['name_'])" class="more"> » {_'přehrát video'}</a>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="left-panel">
+            <a n:href="Photogallery:" class="all cufon"> » všechny foto galerie</a>
+            <h2 class="cufon">Nejnavštěvovanější fotogalerie</h2>
+            
+            <div n:foreach="$topgalleries as $gallery" n:class="gallery">
+                <a n:href="Photogallery:view 'id' => $gallery['id']" n:class="img, thumb">
+                    {$gallery->photo['picture_path']|image:200,158,foto,FALSE,TRUE,FALSE}
+                </a>
+                <div class="content">
+                    <h3><a n:href="Photogallery:view 'id' => $gallery['id']">{$gallery['name_']|truncate:100}</a></h3>
+                </div>
+                <a n:href="Photogallery:view 'id' => $gallery['id']" class="more"> » {_'zhlédnout galerii'}</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="right-panel">
+            <a n:href="Video:" class="all cufon"> » všechna videa</a>
+            <h2 class="cufon">Nejnavštěvovanější videa</h2>
+
+            <div n:foreach="$topvideos as $video" n:class="gallery">
+                <a n:href="Video:view 'id' => $video['id']" n:class="img, thumb">
+                    {if $video['thumb_path']}
+                    {$video['thumb_path']|image:200,158,foto,FALSE,TRUE,FALSE}
+                    {/if}
+                    <div class="play_button"></div>
+                </a>
+                <div class="content">
+                    <h3><a n:href="Video:view 'id' => $video['id']">{$video['name_']|truncate:100}</a></h3>
+                </div>
+                <a n:href="Video:view 'id' => $video['id']" class="more"> » {_'přehrát video'}</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:view">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

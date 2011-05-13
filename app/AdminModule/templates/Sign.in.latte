@@ -1,0 +1,35 @@
+{extends '../../templates/@layout.latte'}
+
+{var $robots = 'noindex, nofollow'}
+
+{var $layout_title = ' administrace Aerocentrum'}
+
+{var $title = 'Administrace'}
+
+{block #css}
+    {include #parent}
+    {control css 'admin.screen.css'}
+{/block}
+
+{block #layout}
+<div id="login">
+    <div id="login-content">
+        <h1>Administrace</h1>
+        {block #flashMessage}
+            {snippet flashMessage}
+                <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+                    <!--
+                    <div class="flash info">Info message.</div>
+                    <div class="flash success">Success message.</div>
+                    <div class="flash warning">Warning message.</div>
+                    <div class="flash error">Error message.</div>
+                    <div class="flash validation">Validation message.</div>
+                    -->
+            {/snippet}
+        {/block}
+        <div class="web">www.aerocentrum.cz</div>
+        {control signInForm}
+    </div>
+</div>
+
+

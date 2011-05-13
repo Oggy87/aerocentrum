@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="noindex,noarchive">
+	<meta name="generator" content="Nette Framework">
+
+	<title>Fatal Error</title><!-- Call to a member function delete() on a non-object -->
+
+	<style type="text/css" class="nette">body{margin:0 0 2em;padding:0}#netteBluescreen{font:9pt/1.5 Verdana,sans-serif;background:white;color:#333;position:absolute;left:0;top:0;width:100%;z-index:23178;text-align:left}#netteBluescreen *{font:inherit;color:inherit;background:transparent;border:none;margin:0;padding:0;text-align:inherit;text-indent:0}#netteBluescreen b{font-weight:bold}#netteBluescreen i{font-style:italic}#netteBluescreenIcon{position:absolute;right:.5em;top:.5em;z-index:23179;text-decoration:none;background:#CD1818;padding:3px}#netteBluescreenError{background:#CD1818;color:white;font:13pt/1.5 Verdana,sans-serif!important;display:block}#netteBluescreen h1{font-size:18pt;font-weight:normal;text-shadow:1px 1px 0 rgba(0,0,0,.4);margin:.7em 0}#netteBluescreen h2{font:14pt/1.5 sans-serif!important;color:#888;margin:.6em 0}#netteBluescreen a{text-decoration:none;color:#328ADC;padding:2px 4px;margin:-2px -4px}#netteBluescreen a abbr{font-family:sans-serif;color:#BBB}#netteBluescreen h3{font:bold 10pt/1.5 Verdana,sans-serif!important;margin:1em 0;padding:0}#netteBluescreen p,#netteBluescreen pre{margin:.8em 0}#netteBluescreen pre,#netteBluescreen code,#netteBluescreen table{font:9pt/1.5 Consolas,monospace!important}#netteBluescreen pre,#netteBluescreen table{background:#FDF5CE;padding:.4em .7em;border:1px dotted silver;overflow:auto}#netteBluescreen table pre{padding:0;margin:0;border:none}#netteBluescreen pre.nette-dump span{color:#C22}#netteBluescreen pre.nette-dump a{color:#333}#netteBluescreen div.panel{padding:1px 25px}#netteBluescreen div.inner{background:#F4F3F1;padding:.1em 1em 1em;border-radius:8px;-moz-border-radius:8px;-webkit-border-radius:8px}#netteBluescreen table{border-collapse:collapse;width:100%}#netteBluescreen .outer{overflow:auto}#netteBluescreen td,#netteBluescreen th{vertical-align:top;text-align:left;padding:2px 6px;border:1px solid #e6dfbf}#netteBluescreen th{width:10%;font-weight:bold}#netteBluescreen tr:nth-child(2n),#netteBluescreen tr:nth-child(2n) pre{background-color:#F7F0CB}#netteBluescreen ol{margin:1em 0;padding-left:2.5em}#netteBluescreen ul{font:7pt/1.5 Verdana,sans-serif!important;padding:2em 4em;margin:1em 0 0;color:#777;background:#F6F5F3 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFEAAAAjCAMAAADbuxbOAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRF/fz24d7Y7Onj5uLd9vPu3drUzMvG09LN39zW8e7o2NbQ3NnT29jS0M7J1tXQAAAApvmsFgAAABB0Uk5T////////////////////AOAjXRkAAAKlSURBVHja7FbbsqQgDAwENEgc//9vN+SCWDtbtXPmZR/Wc6o02mlC58LA9ckFAOszvMV8xNgyUjyXhojfMVKvRL0ZHavxXYy5JrmchMdzou8YlTClxajtK8ZGGpWRoBr1+gFjKfHkJPbizabLgzE3pH7Iu4K980xgFvlrVzMZoVBWhtvouCDdcTDmTgMCJdVxJ9MKO6XxnliM7hxi5lbj2ZVM4l8DqYyKoNLYcfqBB1/LpHYxEcfVG6ZpMDgyFUVWY/Q1sSYPpIdSAKWqLWL0XqWiMWc4hpH0OQOMOAgdycY4N9Sb7wWANQs3rsDSdLAYiuxi5siVfOhBWIrtH0G3kNaF/8Q4kCPE1kMucG/ZMUBUCOgiKJkPuWWTLGVgLGpwns1DraUayCtoBqERyaYtVsm85NActRooezvSLO/sKZP/nq8n4+xcyjNsRu8zW6KWpdb7wjiQd4WrtFZYFiKHENSmWp6xshh96c2RQ+c7Lt+qbijyEjHWUJ/pZsy8MGIUuzNiPySK2Gqoh6ZTRF6ko6q3nVTkaA//itIrDpW6l3SLo8juOmqMXkYknu5FdQxWbhCfKHEGDhxxyTVaXJF3ZjSl3jMksjSOOKmne9pI+mcG5QvaUJhI9HpkmRo2NpCrDJvsktRhRE2MM6F2n7dt4OaMUq8bCctk0+PoMRzL+1l5PZ2eyM/Owr86gf8z/tOM53lom5+nVcFuB+eJVzlXwAYy9TZ9s537tfqcsJWbEU4nBngZo6FfO9T9CdhfBtmk2dLiAy8uS4zwOpMx2HqYbTC+amNeAYTpsP4SIgvWfUBWXxn3CMHW3ffd7k3+YIkx7w0t/CVGvcPejoeOlzOWzeGbawOHqXQGUTMZRcfj4XPCgW9y/fuvVn8zD9P1QHzv80uAAQA0i3Jer7Jr7gAAAABJRU5ErkJggg==') 99% 10px no-repeat;border-top:1px solid #DDD}#netteBluescreen .highlight{background:#CD1818;color:white;font-weight:bold;font-style:normal;display:block;padding:0 .4em;margin:0 -.4em}#netteBluescreen .line{color:#9F9C7F;font-weight:normal;font-style:normal}#netteBluescreen a[href^=editor\:]{color:inherit;border-bottom:1px dotted #328ADC}</style>
+</head>
+
+
+
+<body>
+<div id="netteBluescreen">
+	<a id="netteBluescreenIcon" href="#" rel="next"><abbr>&#x25bc;</abbr></a
+
+	><div>
+		<div id="netteBluescreenError" class="panel">
+			<h1>Fatal Error</h1>
+
+			<p>Call to a member function delete() on a non-object</p>
+		</div>
+
+
+
+				
+			
+												<div class="panel">
+			<h2><a href="#" rel="netteBsPnl1">Source file <abbr>&#x25bc;</abbr></a></h2>
+
+			<div id="netteBsPnl1" class="inner">
+				<p><b>File:</b> <a href="editor://open/?file=%2Fvar%2Fwww%2Fprojekty%2Faero%2Fapp%2FAdminModule%2Fpresenters%2FVideoPresenter.php&amp;line=257">				/var/www/projekty/aero/app/AdminModule/presenters/VideoPresenter.php</a> &nbsp; <b>Line:</b> 257</p>
+				<pre><code><span style="color: #06B"><span style="color: #D24; font-weight: bold"><span class='line'>250:</span>    &nbsp;&nbsp;&nbsp;&nbsp;}
+<span class='line'>251:</span>    
+<span class='line'>252:</span>    &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #000">deleteVideo</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #000">$id</span><span style="color: #D24; font-weight: bold">,&nbsp;</span><span style="color: #000">$dialog</span><span style="color: #D24; font-weight: bold">)
+<span class='line'>253:</span>    &nbsp;&nbsp;&nbsp;&nbsp;{
+<span class='line'>254:</span>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{
+<span class='line'>255:</span>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$video_path&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">video</span><span style="color: #D24; font-weight: bold">[</span><span style="color: #080">'video_path'</span><span style="color: #D24; font-weight: bold">];
+<span class='line'>256:</span>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$thumb_path&nbsp;</span><span style="color: #D24; font-weight: bold">=&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">video</span><span style="color: #D24; font-weight: bold">[</span><span style="color: #080">'thumb_path'</span><span style="color: #D24; font-weight: bold">];
+<span class='highlight'>257:    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$delete&nbsp;=&nbsp;$this-&gt;video-&gt;delete();
+</span></span><span style="color: #000"></span><span style="color: #D24; font-weight: bold"></span><span style="color: #000"></span><span style="color: #D24; font-weight: bold"></span><span style="color: #000"></span><span style="color: #D24; font-weight: bold"></span><span style="color: #000"></span><span style="color: #D24; font-weight: bold"><span class='line'>258:</span>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #000">$delete</span><span style="color: #D24; font-weight: bold">)&nbsp;{
+<span class='line'>259:</span>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">Debug</span><span style="color: #D24; font-weight: bold">::</span><span style="color: #000">barDump</span><span style="color: #D24; font-weight: bold">(@</span><span style="color: #000">unlink</span><span style="color: #D24; font-weight: bold">(&nbsp;</span><span style="color: #000">WWW_DIR</span><span style="color: #D24; font-weight: bold">.</span><span style="color: #080">'/static/'</span><span style="color: #D24; font-weight: bold">.</span><span style="color: #000">$video_path</span><span style="color: #D24; font-weight: bold">));
+<span class='line'>260:</span>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">Debug</span><span style="color: #D24; font-weight: bold">::</span><span style="color: #000">barDump</span><span style="color: #D24; font-weight: bold">(@</span><span style="color: #000">unlink</span><span style="color: #D24; font-weight: bold">(&nbsp;</span><span style="color: #000">WWW_DIR</span><span style="color: #D24; font-weight: bold">.</span><span style="color: #080">'/static/'</span><span style="color: #D24; font-weight: bold">.</span><span style="color: #000">$thumb_path</span><span style="color: #D24; font-weight: bold">));
+<span class='line'>261:</span>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000">$this</span><span style="color: #D24; font-weight: bold">-&gt;</span><span style="color: #000">flashMessage</span><span style="color: #D24; font-weight: bold">(</span><span style="color: #080">'Video&nbsp;smazáno.'</span><span style="color: #D24; font-weight: bold">,</span><span style="color: #080">'succes'</span><span style="color: #D24; font-weight: bold">);
+<span class='line'>262:</span>    
+<span class='line'>263:</span>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #999; font-style: italic">//$this-&gt;redirect('default');
+<span class='line'>264:</span>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #D24; font-weight: bold">}
+</span></span></code></pre>
+			</div></div>
+			
+
+
+						
+
+
+			
+
+
+			
+				
+
+
+				<div class="panel">
+		<h2><a href="#" rel="netteBsPnl2">Nette Application <abbr>&#x25ba;</abbr></a></h2>
+
+		<div id="netteBsPnl2" class="nette-collapsed inner">
+			<h3>Requests</h3>
+			<pre class="nette-dump"><a href='#' rel='next'><span>array</span>(1) <abbr>&#x25bc;</abbr> </a><code>[
+   <a href='#' rel='next'>0 => <span>PresenterRequest</span>(7) <abbr>&#x25ba;</abbr> </a><code class="nette-collapsed">{
+      "method" <span>private</span> => "POST" (4)
+      <a href='#' rel='next'>"flags" <span>private</span> => <span>array</span>(1) <abbr>&#x25bc;</abbr> </a><code>{
+         "secured" => FALSE
+      }</code>
+      "name" <span>private</span> => "Admin:Video" (11)
+      <a href='#' rel='next'>"params" <span>private</span> => <span>array</span>(4) <abbr>&#x25bc;</abbr> </a><code>{
+         "action" => "default" (7)
+         "id" => NULL
+         "lang" => "cs" (2)
+         "do" => "confirmForm-form-submit" (23)
+      <a href='#' rel='next'>}</code>
+      "post" <span>private</span> => <span>array</span>(2) <abbr>&#x25bc;</abbr> </a><code>{
+         "yes" => "Ano" (3)
+         "token" => "7jljhwju32scgcgsookkkw8w8" (25)
+      }</code>
+      "files" <span>private</span> => <span>array</span>(0) 
+      "frozen" <span>private</span> => TRUE
+   }</code>
+]</code>
+</pre>
+			<h3>Presenter</h3>
+			<pre class="nette-dump"><a href='#' rel='next'><span>Admin_VideoPresenter</span>(29) <abbr>&#x25ba;</abbr> </a><code class="nette-collapsed">{
+   "lang" => "cs" (2)
+   "video" <span>private</span> => NULL
+   "translator" <span>protected</span> => <span>Translator</span>(0) 
+   <a href='#' rel='next'>"onShutdown" => NULL
+   "request" <span>private</span> => <span>PresenterRequest</span>(7) <abbr>&#x25ba;</abbr> </a><code class="nette-collapsed">{
+      "method" <span>private</span> => "POST" (4)
+      <a href='#' rel='next'>"flags" <span>private</span> => <span>array</span>(1) <abbr>&#x25bc;</abbr> </a><code>{
+         "secured" => FALSE
+      }</code>
+      "name" <span>private</span> => "Admin:Video" (11)
+      <a href='#' rel='next'>"params" <span>private</span> => <span>array</span>(4) <abbr>&#x25bc;</abbr> </a><code>{
+         "action" => "default" (7)
+         "id" => NULL
+         "lang" => "cs" (2)
+         "do" => "confirmForm-form-submit" (23)
+      <a href='#' rel='next'>}</code>
+      "post" <span>private</span> => <span>array</span>(2) <abbr>&#x25bc;</abbr> </a><code>{
+         "yes" => "Ano" (3)
+         "token" => "7jljhwju32scgcgsookkkw8w8" (25)
+      }</code>
+      "files" <span>private</span> => <span>array</span>(0) 
+      "frozen" <span>private</span> => TRUE
+   }</code>
+   "response" <span>private</span> => NULL
+   "autoCanonicalize" => TRUE
+   "absoluteUrls" => FALSE
+   "globalParams" <span>private</span> => <span>array</span>(0) 
+   "globalState" <span>private</span> => NULL
+   "globalStateSinces" <span>private</span> => NULL
+   "action" <span>private</span> => "default" (7)
+   "view" <span>private</span> => "default" (7)
+   "layout" <span>private</span> => NULL
+   "payload" <span>private</span> => <span>stdClass</span>(0) 
+   "signalReceiver" <span>private</span> => "confirmForm-form" (16)
+   "signal" <span>private</span> => "submit" (6)
+   "ajaxMode" <span>private</span> => TRUE
+   "startupCheck" <span>private</span> => TRUE
+   "lastCreatedRequest" <span>private</span> => NULL
+   "lastCreatedRequestFlag" <span>private</span> => NULL
+   "template" <span>private</span> => NULL
+   "invalidSnippets" <span>private</span> => <span>array</span>(0) 
+   <a href='#' rel='next'>"params" <span>protected</span> => <span>array</span>(6) <abbr>&#x25bc;</abbr> </a><code>{
+      "yes" => "Ano" (3)
+      "token" => "7jljhwju32scgcgsookkkw8w8" (25)
+      "action" => "default" (7)
+      "id" => NULL
+      "lang" => "cs" (2)
+      "do" => "confirmForm-form-submit" (23)
+   <a href='#' rel='next'>}</code>
+   "components" <span>private</span> => <span>array</span>(1) <abbr>&#x25bc;</abbr> </a><code>{
+      <a href='#' rel='next'>"confirmForm" => <span>ConfirmationDialog</span>(14) <abbr>&#x25ba;</abbr> </a><code class="nette-collapsed">{
+         "form" <span>private</span> => <span>AppForm</span>(17) { ... }
+         "question" <span>private</span> => <span>Html</span>(4) { ... }
+         "session" <span>private</span> => <span>SessionNamespace</span>(3) { ... }
+         "confirmationHandlers" <span>private</span> => <span>array</span>(1) { ... }
+         "show" => FALSE
+         "dialogClass" => "confirm_dialog" (14)
+         "template" <span>private</span> => NULL
+         "invalidSnippets" <span>private</span> => <span>array</span>(1) { ... }
+         "params" <span>protected</span> => <span>array</span>(0) 
+         "components" <span>private</span> => <span>array</span>(1) { ... }
+         "cloning" <span>private</span> => NULL
+         "parent" <span>private</span> => <span>Admin_VideoPresenter</span>(29) { *RECURSION* }
+         "name" <span>private</span> => "confirmForm" (11)
+         "monitors" <span>private</span> => <span>array</span>(1) { ... }
+      }</code>
+   }</code>
+   "cloning" <span>private</span> => NULL
+   "parent" <span>private</span> => NULL
+   "name" <span>private</span> => "Admin:Video" (11)
+   <a href='#' rel='next'>"monitors" <span>private</span> => <span>array</span>(1) <abbr>&#x25bc;</abbr> </a><code>{
+      <a href='#' rel='next'>"Presenter" => <span>array</span>(4) <abbr>&#x25bc;</abbr> </a><code>[
+         0 => NULL
+         1 => NULL
+         2 => NULL
+         3 => TRUE
+      ]</code>
+   }</code>
+}</code>
+</pre>		</div></div>
+		
+
+
+		<div class="panel">
+		<h2><a href="#" rel="netteBsPnl3">Environment <abbr>&#x25ba;</abbr></a></h2>
+
+		<div id="netteBsPnl3" class="nette-collapsed inner">
+						<h3><a href="#" rel="netteBsPnl-env-const">Constants <abbr>&#x25bc;</abbr></a></h3>
+			<div class="outer">
+			<table id="netteBsPnl-env-const">
+			<tr><th>SITE</th><td><pre class="nette-dump">""
+</pre></td></tr>
+<tr><th>WWW_DIR</th><td><pre class="nette-dump">"/var/www/projekty/aero/web" (26)
+</pre></td></tr>
+<tr><th>APP_DIR</th><td><pre class="nette-dump">"/var/www/projekty/aero/web/../app" (33)
+</pre></td></tr>
+<tr><th>LIBS_DIR</th><td><pre class="nette-dump">"/var/www/projekty/aero/web/../libs" (34)
+</pre></td></tr>
+<tr><th>TEMP_DIR</th><td><pre class="nette-dump">"/var/www/projekty/aero/web/../temp" (34)
+</pre></td></tr>
+<tr><th>NETTE</th><td><pre class="nette-dump">TRUE
+</pre></td></tr>
+<tr><th>NETTE_DIR</th><td><pre class="nette-dump">"/var/www/projekty/aero/libs/Nette/Nette" (39)
+</pre></td></tr>
+<tr><th>NETTE_VERSION_ID</th><td><pre class="nette-dump">20000
+</pre></td></tr>
+<tr><th>NETTE_PACKAGE</th><td><pre class="nette-dump">"PHP 5.2" (7)
+</pre></td></tr>
+<tr><th>LANG</th><td><pre class="nette-dump">"cs" (2)
+</pre></td></tr>
+			</table>
+			</div>
+			
+
+			<h3><a href="#" rel="netteBsPnl-env-files">Included files <abbr>&#x25ba;</abbr></a> (20)</h3>
+			<div class="outer">
+			<table id="netteBsPnl-env-files" class="nette-collapsed">
+			<tr><td>/var/www/projekty/aero/web/index.php</td></tr>
+<tr><td>/var/www/projekty/aero/app/bootstrap.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/Nette/Nette/loader.php</td></tr>
+<tr><td>/var/www/projekty/aero/app/extensions.php</td></tr>
+<tr><td>/var/www/projekty/aero/app/AppRouter.php</td></tr>
+<tr><td>/var/www/projekty/aero/app/models/BaseModel.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/NotORM/NotORM.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/NotORM/NotORM/Structure.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/NotORM/NotORM/Cache.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/NotORM/NotORM/Literal.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/NotORM/NotORM/Result.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/NotORM/NotORM/MultiResult.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/NotORM/NotORM/Row.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/NotORMPanel.php</td></tr>
+<tr><td>/var/www/projekty/aero/app/AdminModule/presenters/VideoPresenter.php</td></tr>
+<tr><td>/var/www/projekty/aero/app/AdminModule/presenters/BasePresenter.php</td></tr>
+<tr><td>/var/www/projekty/aero/app/presenters/BasePresenter.php</td></tr>
+<tr><td>/var/www/projekty/aero/app/models/Translator.php</td></tr>
+<tr><td>/var/www/projekty/aero/libs/NotORM_RowLang.php</td></tr>
+<tr><td>/var/www/projekty/aero/app/components/ConfirmationDialog/ConfirmationDialog.php</td></tr>
+			</table>
+			</div>
+
+
+			<h3>$_SERVER</h3>
+						<div class="outer">
+			<table>
+			<tr><th>REDIRECT_STATUS</th><td><pre class="nette-dump">"200" (3)
+</pre></td></tr>
+<tr><th>HTTP_HOST</th><td><pre class="nette-dump">"localhost" (9)
+</pre></td></tr>
+<tr><th>HTTP_USER_AGENT</th><td><pre class="nette-dump">"Mozilla/5.0 (X11; Linux x86_64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1" (70)
+</pre></td></tr>
+<tr><th>HTTP_ACCEPT</th><td><pre class="nette-dump">"application/json, text/javascript, */*; q=0.01" (46)
+</pre></td></tr>
+<tr><th>HTTP_ACCEPT_LANGUAGE</th><td><pre class="nette-dump">"cs,en-us;q=0.7,en;q=0.3" (23)
+</pre></td></tr>
+<tr><th>HTTP_ACCEPT_ENCODING</th><td><pre class="nette-dump">"gzip, deflate" (13)
+</pre></td></tr>
+<tr><th>HTTP_ACCEPT_CHARSET</th><td><pre class="nette-dump">"ISO-8859-2,utf-8;q=0.7,*;q=0.7" (30)
+</pre></td></tr>
+<tr><th>HTTP_KEEP_ALIVE</th><td><pre class="nette-dump">"115" (3)
+</pre></td></tr>
+<tr><th>HTTP_CONNECTION</th><td><pre class="nette-dump">"keep-alive" (10)
+</pre></td></tr>
+<tr><th>CONTENT_TYPE</th><td><pre class="nette-dump">"application/x-www-form-urlencoded; charset=UTF-8" (48)
+</pre></td></tr>
+<tr><th>HTTP_X_REQUESTED_WITH</th><td><pre class="nette-dump">"XMLHttpRequest" (14)
+</pre></td></tr>
+<tr><th>HTTP_REFERER</th><td><pre class="nette-dump">"http://localhost/projekty/aero/web/admin/video/?lang=cs" (55)
+</pre></td></tr>
+<tr><th>CONTENT_LENGTH</th><td><pre class="nette-dump">"39" (2)
+</pre></td></tr>
+<tr><th>HTTP_COOKIE</th><td><pre class="nette-dump">"WRUID=508033431.304330829; nette-debug-panel-dumps=; PHPSESSID=jtrf5mb15e2oqsd7q2jt6l2852; nette-browser=9nc7rdyi5l" (115)
+</pre></td></tr>
+<tr><th>HTTP_PRAGMA</th><td><pre class="nette-dump">"no-cache" (8)
+</pre></td></tr>
+<tr><th>HTTP_CACHE_CONTROL</th><td><pre class="nette-dump">"no-cache" (8)
+</pre></td></tr>
+<tr><th>PATH</th><td><pre class="nette-dump">"/usr/local/bin:/usr/bin:/bin" (28)
+</pre></td></tr>
+<tr><th>SERVER_SIGNATURE</th><td><pre class="nette-dump">"&lt;address&gt;Apache/2.2.17 (Ubuntu) Server at localhost Port 80&lt;/address&gt;
+" (70)
+</pre></td></tr>
+<tr><th>SERVER_SOFTWARE</th><td><pre class="nette-dump">"Apache/2.2.17 (Ubuntu)" (22)
+</pre></td></tr>
+<tr><th>SERVER_NAME</th><td><pre class="nette-dump">"localhost" (9)
+</pre></td></tr>
+<tr><th>SERVER_ADDR</th><td><pre class="nette-dump">"::1" (3)
+</pre></td></tr>
+<tr><th>SERVER_PORT</th><td><pre class="nette-dump">"80" (2)
+</pre></td></tr>
+<tr><th>REMOTE_ADDR</th><td><pre class="nette-dump">"::1" (3)
+</pre></td></tr>
+<tr><th>DOCUMENT_ROOT</th><td><pre class="nette-dump">"/var/www" (8)
+</pre></td></tr>
+<tr><th>SERVER_ADMIN</th><td><pre class="nette-dump">"webmaster@localhost" (19)
+</pre></td></tr>
+<tr><th>SCRIPT_FILENAME</th><td><pre class="nette-dump">"/var/www/projekty/aero/web/index.php" (36)
+</pre></td></tr>
+<tr><th>REMOTE_PORT</th><td><pre class="nette-dump">"60087" (5)
+</pre></td></tr>
+<tr><th>REDIRECT_QUERY_STRING</th><td><pre class="nette-dump">"lang=cs&amp;do=confirmForm-form-submit" (34)
+</pre></td></tr>
+<tr><th>REDIRECT_URL</th><td><pre class="nette-dump">"/projekty/aero/web/admin/video/" (31)
+</pre></td></tr>
+<tr><th>GATEWAY_INTERFACE</th><td><pre class="nette-dump">"CGI/1.1" (7)
+</pre></td></tr>
+<tr><th>SERVER_PROTOCOL</th><td><pre class="nette-dump">"HTTP/1.1" (8)
+</pre></td></tr>
+<tr><th>REQUEST_METHOD</th><td><pre class="nette-dump">"POST" (4)
+</pre></td></tr>
+<tr><th>QUERY_STRING</th><td><pre class="nette-dump">"lang=cs&amp;do=confirmForm-form-submit" (34)
+</pre></td></tr>
+<tr><th>REQUEST_URI</th><td><pre class="nette-dump">"/projekty/aero/web/admin/video/?lang=cs&amp;do=confirmForm-form-submit" (66)
+</pre></td></tr>
+<tr><th>SCRIPT_NAME</th><td><pre class="nette-dump">"/projekty/aero/web/index.php" (28)
+</pre></td></tr>
+<tr><th>PHP_SELF</th><td><pre class="nette-dump">"/projekty/aero/web/index.php" (28)
+</pre></td></tr>
+<tr><th>REQUEST_TIME</th><td><pre class="nette-dump">1304624728
+</pre></td></tr>
+			</table>
+			</div>
+					</div></div>
+
+
+
+		<div class="panel">
+		<h2><a href="#" rel="netteBsPnl4">HTTP request <abbr>&#x25ba;</abbr></a></h2>
+
+		<div id="netteBsPnl4" class="nette-collapsed inner">
+						<h3>Headers</h3>
+			<div class="outer">
+			<table>
+			<tr><th>Host</th><td>localhost</td></tr>
+<tr><th>User-Agent</th><td>Mozilla/5.0 (X11; Linux x86_64; rv:2.0.1) Gecko/20100101 Firefox/4.0.1</td></tr>
+<tr><th>Accept</th><td>application/json, text/javascript, */*; q=0.01</td></tr>
+<tr><th>Accept-Language</th><td>cs,en-us;q=0.7,en;q=0.3</td></tr>
+<tr><th>Accept-Encoding</th><td>gzip, deflate</td></tr>
+<tr><th>Accept-Charset</th><td>ISO-8859-2,utf-8;q=0.7,*;q=0.7</td></tr>
+<tr><th>Keep-Alive</th><td>115</td></tr>
+<tr><th>Connection</th><td>keep-alive</td></tr>
+<tr><th>Content-Type</th><td>application/x-www-form-urlencoded; charset=UTF-8</td></tr>
+<tr><th>X-Requested-With</th><td>XMLHttpRequest</td></tr>
+<tr><th>Referer</th><td>http://localhost/projekty/aero/web/admin/video/?lang=cs</td></tr>
+<tr><th>Content-Length</th><td>39</td></tr>
+<tr><th>Cookie</th><td>WRUID=508033431.304330829; nette-debug-panel-dumps=; PHPSESSID=jtrf5mb15e2oqsd7q2jt6l2852; nette-browser=9nc7rdyi5l</td></tr>
+<tr><th>Pragma</th><td>no-cache</td></tr>
+<tr><th>Cache-Control</th><td>no-cache</td></tr>
+			</table>
+			</div>
+			
+
+						<h3>$_GET</h3>
+						<div class="outer">
+			<table>
+			<tr><th>lang</th><td><pre class="nette-dump">"cs" (2)
+</pre></td></tr>
+<tr><th>do</th><td><pre class="nette-dump">"confirmForm-form-submit" (23)
+</pre></td></tr>
+			</table>
+			</div>
+									<h3>$_POST</h3>
+						<div class="outer">
+			<table>
+			<tr><th>yes</th><td><pre class="nette-dump">"Ano" (3)
+</pre></td></tr>
+<tr><th>token</th><td><pre class="nette-dump">"7jljhwju32scgcgsookkkw8w8" (25)
+</pre></td></tr>
+			</table>
+			</div>
+									<h3>$_COOKIE</h3>
+						<div class="outer">
+			<table>
+			<tr><th>WRUID</th><td><pre class="nette-dump">"508033431.304330829" (19)
+</pre></td></tr>
+<tr><th>nette-debug-panel-dumps</th><td><pre class="nette-dump">""
+</pre></td></tr>
+<tr><th>PHPSESSID</th><td><pre class="nette-dump">"jtrf5mb15e2oqsd7q2jt6l2852" (26)
+</pre></td></tr>
+<tr><th>nette-browser</th><td><pre class="nette-dump">"9nc7rdyi5l" (10)
+</pre></td></tr>
+			</table>
+			</div>
+								</div></div>
+
+
+
+		<div class="panel">
+		<h2><a href="#" rel="netteBsPnl5">HTTP response <abbr>&#x25ba;</abbr></a></h2>
+
+		<div id="netteBsPnl5" class="nette-collapsed inner">
+			<h3>Headers</h3>
+						<pre>X-Powered-By: Nette Framework<br>Expires: Thu, 19 Nov 1981 08:52:00 GMT<br>Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0<br>Pragma: no-cache<br>Set-Cookie: PHPSESSID=jtrf5mb15e2oqsd7q2jt6l2852; path=/; httponly<br>Set-Cookie: nette-browser=9nc7rdyi5l; path=/; httponly<br></pre>
+					</div></div>
+
+
+		<ul>
+			<li>Report generated at 2011/05/05 21:45:28</li>
+							<li><a href="http://localhost/projekty/aero/web/admin/video/?lang=cs&amp;do=confirmForm-form-submit">http://localhost/projekty/aero/web/admin/video/?lang=cs&amp;do=confirmForm-form-submit</a></li>
+						<li>PHP 5.3.5-1ubuntu7.2</li>
+			<li>Apache/2.2.17 (Ubuntu)</li>			<li>Nette Framework 2.0-dev <i>(revision 9f535f9 released on 2011-01-10)</i></li>		</ul>
+	</div>
+</div>
+
+<script type="text/javascript">/*<![CDATA[*/var bs=document.getElementById("netteBluescreen");document.body.appendChild(bs);document.onkeyup=function(b){b=b||window.event;b.keyCode==27&&bs.onclick({target:document.getElementById("netteBluescreenIcon")})};
+for(var i=0,styles=document.styleSheets;i<styles.length;i++)if((styles[i].owningElement||styles[i].ownerNode).className!=="nette"){styles[i].oldDisabled=styles[i].disabled;styles[i].disabled=true}else styles[i].addRule?styles[i].addRule(".nette-collapsed","display: none"):styles[i].insertRule(".nette-collapsed { display: none }",0);
+bs.onclick=function(b){b=b||window.event;for(var a=b.target||b.srcElement;a&&a.tagName&&a.tagName.toLowerCase()!=="a";)a=a.parentNode;if(!a||!a.rel)return true;for(var d=a.getElementsByTagName("abbr")[0],c=a.rel==="next"?a.nextSibling:document.getElementById(a.rel);c.nodeType!==1;)c=c.nextSibling;b=c.currentStyle?c.currentStyle.display=="none":getComputedStyle(c,null).display=="none";try{d.innerHTML=String.fromCharCode(b?9660:9658)}catch(e){}c.style.display=b?c.tagName.toLowerCase()==="code"?"inline":
+"block":"none";if(a.id==="netteBluescreenIcon"){a=0;for(d=document.styleSheets;a<d.length;a++)if((d[a].owningElement||d[a].ownerNode).className!=="nette")d[a].disabled=b?true:d[a].oldDisabled}return false};/*]]>*/</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<div class="sitemap">
+{block #item}
+{assign items $section->getComponents(FALSE)}
+    <ul>
+    {foreach $items as $item}
+        <li n:if="$item->url" {attr class('last',$iterator->isLast()) class('active',$item->isCurrent)}>
+            <a href="{if $item->args}{$presenter->link($item->url, $item->args)}{else}{$presenter->link($item->url)}{/if}">{$item->label|lower}</a>
+
+            {if $item->getComponents(FALSE)->count() > 0}
+                    {include #item, 'section' => $item}
+            {/if}
+           
+        </li>
+    {/foreach}
+    </ul>
+{/block}
+</div>

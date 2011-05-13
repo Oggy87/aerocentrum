@@ -1,0 +1,12 @@
+<div id="menu">
+    <div n:foreach="$section->getComponents(FALSE,'SectionNode') as $item" n:class="item,$iterator->isFirst() ? first,$iterator->isLast() ? last ">
+        {if $item->url}
+            <a href="{if $item->args}{$presenter->link($item->url, $item->args)}{else}{$presenter->link($item->url)}{/if}" n:class="in_array($item,$path) ? active">
+                {$item->label}
+                {*<span n:if="isset($item->others['subheading'])" class="description">{$item->others['subheading']}</span>*}
+            </a>
+        {else}
+            <span class="a">{$item->label}</span>
+        {/if}
+    </div>
+</div>

@@ -1,0 +1,74 @@
+{extends '@layout.classic.latte'}
+
+{var $title = $category['name']}
+
+<div class="main" n:block="main">
+    <div class="filter">
+        <div class="cufon hfilter">{='Vybrané filtry:'|upper}</div>
+        <div n:foreach="$tags as $tag" n:class="tag">
+            <span>{$tag->tagGroup['name']}:</span>
+            {var $ids = explode('+',$presenter->tags)}
+            {? unset($ids[array_search($tag['id'], $ids)])}
+            <a n:href="this 'tags' => implode('+',$ids)" n:class="removeTag">{$tag['value']}</a>
+            <a n:href="this 'tags' => implode('+',$ids)" n:class="cross"></a>
+        </div>
+        <div class="clear"></div>
+        <a n:if="count($tags) > 0" n:href="this 'tags' => NULL " n:class="removeAllTags">odebrat vše</a>
+    </div>
+    <div class="aboutcategory">
+        <div class="filter-results">
+            Filtru odpovídá {$products->count("*")} produktů:
+        </div>
+        <div class="order">
+            Seřadit podle
+        </div>
+
+        <div class="clear"></div>
+
+        <h1 class="cufon">{$category['name']}</h1>
+    </div>
+    
+    <div class="products">
+        <div n:foreach="$products as $product" n:class="product,$iterator->isEven() ? even">
+            {if $product['picture']}
+                <a n:href="Product: 'id' => $product['id']" class="img">
+                    {$product['picture']|imageDb:'product'.$product['id'],$product['modified'],328,196,$product['name'],TRUE,TRUE,FALSE}
+                </a>
+            {/if}
+            <h2 class="cufon"><a n:href="Product: 'id' => $product['id']">{$product['name']}</a></h2>
+            <div class="product-data">
+                <div n:foreach="$product->product_tag() as $product_tag" class="meta">
+                    {var $tagGroup = BaseModel::fetchRow('tagGroup',$product_tag->tag['tagGroup_id'])}
+                    <span>{$tagGroup['name']}:</span>{$product_tag->tag['value']}
+                </div>
+                <div class="price">
+                    Cena: {$product['price']|currencyKc} s DPH
+                </div>
+            </div>
+            <div class="buttons">
+                <a n:class="detail" n:href="Product: 'id' => $product['id']">{$product['name']}</a>
+                <a n:class="basket" n:href="addToBasket! 'product_id' => $product['id'], 'tags' => NULL">Do košíku</a>
+            </div>
+            
+        </div>
+        <div class="clear"></div>
+    </div>
+    {control vpProducts}
+</div>
+
+{block #leftPanel}
+    {foreach $tagGroupes as $tagGroup}
+    <div n:if="$tagGroup->tag()->count('*') > 0" n:class="group">
+        <strong>{$tagGroup['name']}:</strong>
+        <div n:foreach="$tagGroup->tag() as $tag">
+            +
+            {if $presenter->tags}
+                {var $tagsurl = $presenter->tags.'+'.$tag['id']}
+            {else}
+                {var $tagsurl = $tag['id']}
+            {/if}
+            <a n:href="this 'tags' => $tagsurl">{$tag['value']}</a>
+        </div>
+    </div>
+    {/foreach}
+{/block}

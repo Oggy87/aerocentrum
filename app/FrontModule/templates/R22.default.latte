@@ -1,0 +1,70 @@
+{extends '@layout.classic.latte'}
+
+{var $description = 'Dvoumístný lehký vrtulník R22, výrobce Robinson
+        Helicopter Company LA, USA, s vynikajícími manévrovacími
+        schopnostmi a výborným výhledem z kabiny.'}
+{var $keywords = 'aerocentrum, vrtulník, robinson 22, r22'}
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'Vrtulník Robinson R22'|upper}</h1>
+
+    <p class="intro cufon">Dvoumístný lehký vrtulník, výrobce Robinson
+        Helicopter Company LA, USA, s vynikajícími manévrovacími
+        schopnostmi a výborným výhledem z kabiny.</p>
+    {='gallery/r22-postrik.jpg'|image:645,330,'r22',TRUE,TRUE,FALSE, FALSE, 'full'}
+
+    <h2 class="cufon">Technické parametry vrtulníku:</h2>
+    <table>
+        <tr class="first">
+            <th>maximální rychlost</th>
+            <td>189 km/h</td>
+        </tr>
+        <tr>
+            <th>cestovní rychlost</th>
+            <td>176 km/h</td>
+        </tr>
+        <tr>
+            <th>stoupavost</th>
+            <td>5 m/s</td>
+        </tr>
+        <tr>
+            <th>maximální dolet</th>
+            <td>480 km</td>
+        </tr>
+        <tr>
+            <th>maximální operační výška</th>
+            <td>4 260 m</td>
+        </tr>
+        <tr>
+            <th>maximální vzletová hmotnost</th>
+            <td>621 kg</td>
+        </tr>
+        <tr>
+            <th>užitečné zatížení</th>
+            <td>247 kg</td>
+        </tr>
+        <tr>
+            <th>osádka</th>
+            <td>pilot + 1</td>
+        </tr>
+        <tr>
+            <th>stoupavost</th>
+            <td>7,36 m/s</td>
+        </tr>
+    </table>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

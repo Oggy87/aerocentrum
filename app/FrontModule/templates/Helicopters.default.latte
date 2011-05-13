@@ -1,0 +1,66 @@
+{extends '@layout.classic.latte'}
+
+{var $description = 'Vrtulníky letecké společnosti Aerocentrum - Robinson R22, Robinson R44, Mil Mi-8 a MD520n.'}
+{var $keywords = 'aerocentrum, vrtulníky, robinson 22, robinson 44, md520n, mi 8'}
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'Naše vrtulníky'|upper}</h1>
+
+    <p class="intro cufon"> Vrtulníky naší společnosti jsou po celý rok <strong>špičkově udržovány</strong> a připraveny
+            kdykoliv splnit Vaše představy.</p>
+
+    <div class="helicopters">
+        <div class="helicopter">
+            <a n:href="Mi8:" n:class="img">{='gallery/mi8-na-palube-auto.jpg'|image:300,NULL,'mi-8',TRUE,FALSE,FALSE,FALSE,'imgfleft'}</a>
+            <h2 class="cufon"><a n:href="Mi8:">Mi-8</a></h2>
+            <p>Provozujeme těžký <a n:href="Mi8:"><strong>vrtulník Mi-8</strong></a>, který může letět s podvěsem do 3 tun,
+                nákladem do trupu max. 4 tuny. Velikost tohoto legendárního dokazuje i fakt, že
+                zadními vraty do něj vjede osobní automobil.</p>
+            <div class="clear"></div>
+        </div>
+        <div class="helicopter">
+            <a n:href="R44:" n:class="img">{='gallery/r44.jpg'|image:300,NULL,'r44',TRUE,FALSE,FALSE,FALSE,'imgfleft'}</a>
+            <h2 class="cufon"><a n:href="R44:">Robinson R44</a></h2>
+            <p>Dalším vrtulníkem v naší flotile je čtyřmístný lehký vrtulník, výrobce Robinson
+                Helicopter Company LA, <a n:href="R44:"><strong>Robinson R44</strong></a>. Je vhodný pro přepravu
+                osob, aerotaxi, filmování atd.</p>
+            <div class="clear"></div>
+        </div>
+        <div class="helicopter">
+            <a n:href="R22:" n:class="img">{='gallery/r22.jpg'|image:300,NULL,'r22',TRUE,FALSE,FALSE,FALSE,'imgfleft'}</a>
+            <h2 class="cufon"><a n:href="R22:">Robinson R-22 Beta</a></h2>
+            <p><a n:href="R22:"><strong>Robinson R-22 Beta</strong></a> je klasická dvoumístná jednomotorová helikoptéra,
+                která se již od začátku výroby stala celosvětově oblíbeným modelem. Jedná se o vrtulník,
+                který je používán zhruba v 60 zemích světa. Oblíbeným se stal pro svou multifunkčnost.
+                Je používán opravdu k všemožným aktivitám od sledování dopravy, přes <a n:href="FlyingSchool:">výuku  pilotů</a>
+                po <a n:href="SightseeingFlight">vyhlídkové lety</a>. Tento elegantní stroj dosahuje
+                rychlosti až 189 km/h a váží 389 kg. Výrobcem je Robinson Helicopter Company LA, USA.
+                Tato helikoptéra je určena pro jednoho cestujícího plus pilot. </p>
+            <div class="clear"></div>
+        </div>
+        <div class="helicopter">
+            <a n:href="Md520n:" n:class="img">{='gallery/md520-zrcatko.jpg'|image:300,NULL,'md520n',TRUE,FALSE,FALSE,FALSE,'imgfleft'}</a>
+            <h2 class="cufon"><a n:href="Md520n:">MD 520 N</a></h2>
+            <p>Nejmodernějším strojem je čtyřmístný lehký vrtulník <a n:href="Md520n:"><strong>MD 520 N</strong></a>
+                vhodný pro přepravu osob, aerotaxi, filmování za obdobných podmínek jako vrtulník R44
+                s tím, že je zde více prostoru i na velkou kameru a může letět případně i režisér,
+                lety s podvěsem do 700 kg. </p>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

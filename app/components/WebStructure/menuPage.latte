@@ -1,0 +1,32 @@
+{if isset($path)}
+    {if $path[0]->getComponents(FALSE,'SectionNode')->count() > 0}
+    <div id="page-menu">
+        <a class="cufon parent" href="{$presenter->link ($path[0]->url)}">{$path[0]->label}</a>
+ 
+        {var node =  $path[0]}
+        {block #items}
+            {var sections = $node->getComponents(FALSE,'SectionNode')}
+            <ul>
+            {foreach $sections as $section}
+                <li>
+                    <div {attr class('last',$iterator->isLast()) }>
+                        {if $section->url}
+                        <a href="{if $section->args}{$presenter->link($section->url, $section->args)}{else}{$presenter->link($section->url)}{/if}" n:class="$section->isCurrent ? active, in_array($section, $path) ? inpath">
+                            <span n:class="cufon,$section->getComponents(FALSE,'SectionNode')->count() > 0 ? open">{$section->label}</span>
+                        </a>
+                        {else}
+                            <span class="a cufon">{$section->label}</span>
+                        {/if}
+                    </div>
+                    {if in_array($section, $path)}
+                        {if $section->getComponents(FALSE,'SectionNode')->count() > 0}
+                            {include #items, 'node' => $section}
+                        {/if}
+                    {/if}
+                </li>
+            {/foreach}
+            </ul>
+        {/block}
+    </div>
+    {/if}
+{/if}

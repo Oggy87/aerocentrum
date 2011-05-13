@@ -1,0 +1,42 @@
+{extends '@layout.classic.latte'}
+
+<div class="main" n:block="main">
+    <div id="reference">
+    <h1 class="cufon">{$h1|upper}</h1>
+
+    {if isset($articles)}
+    <div n:inner-foreach="$articles as $article" class="articles">
+        <div class="article">
+            <a n:if="$article['perex_photo_path']"n:href="Article: 'id' => $article['id']" n:class="img, thumb">
+                {$article['perex_photo_path']|image:200,158,foto,FALSE,TRUE,FALSE}
+            </a>
+            <div class="content">
+                <h3><a n:href="Article: 'id' => $article['id']">{$article['heading']|truncate:100}</a></h3>
+                {!$article['perex_html']|texy|html_cut:250}
+
+                <a n:href="Article: 'id' => $article['id']" class="more"> » {_'celý článek'}</a>
+
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+    {control vpArticles}
+    {/if}
+    </div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

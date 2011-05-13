@@ -1,0 +1,118 @@
+{extends '../../templates/@layout.latte'}
+
+{block #css}
+    {include #parent}
+    {control css 'screen.css','jquery.selectbox.css'}
+    <link rel="stylesheet" type="text/css" href="{$staticUri}/css/jquery.fancybox-1.3.4.css">
+
+{/block}
+
+{block layout}
+<div id="page">
+    <div id="head">
+        <a id="logo" n:href=":Front:Homepage:" n:block="logo"><img src="{$staticUri}/images/logo.png" width="346" height="156" alt="Aerocentrum - {_'úvodní stránka'}" /></a>
+        <div id="callus">
+            <a n:href=":Front:Contacts:" class="call cufon">{_'Zavolejte nám'|upper}</a>
+            <a n:href=":Front:Contacts:" class="number cufon">+420 315 622 277</a>
+        </div>
+        <div id="languages" n:inner-block="languages">
+            <a n:foreach="BaseModel::fetchAll('language')->where('active',1) as $lang" n:href="this 'lang' => $lang['id']" n:class="$lang['id'],$presenter->lang == $lang['id'] ? current">{$lang['id']}</a>
+        </div>
+        <div id="headmenu">
+            <a n:href=":Front:Homepage:">{_'Úvodní stránka'}</a>
+            <span>|</span>
+            <a n:href=":Front:Contacts:">{_'Napiště nám'}</a>
+            {*<span>|</span>
+            <a n:href=":Front:Sitemap:">{_'Mapa webu'}</a>*}
+        </div>
+    </div>
+    <div class="menu-container">
+        {control webStructure:menu}
+    </div>
+    {include #content}
+    {ifCurrent :Front:HomePage:*}
+    {else}
+    <div id="sharebox">
+        <div class="sharer">
+            <iframe src="http://www.facebook.com/plugins/like.php?href={link //this}&amp;layout=box_count&amp;show_faces=true&amp;width=100&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:65px;" allowTransparency="true"></iframe>
+        </div>
+        <div class="sharer">
+            <iframe src="http://platform.twitter.com/widgets/tweet_button.html?url={link //this}&amp;via=Aerocentrum&amp;count=horizontal&amp;text={$title}" allowtransparency="true" frameborder="0" scrolling="no" style="width:100px; height:25px;"></iframe>
+        </div>
+    </div>
+    {/ifCurrent}
+</div>
+
+<div id="underpage" n:block="underpage">
+    <div class="ads">
+        <div class="ad">
+            <div class="box">
+                <h3 class="cufon"><a n:href=":Front:FlyingSchool:">{_'Chcete být pilot vrtulníku?'}</a></h3>
+
+                <p>Získejte pilotní licenci v naší vrtulníkové pilotní škole.</p>
+                <p>Přeškolíme Vás na vrtulníky typu Robinson R22 a R44.</p>
+
+            </div>
+            <div class="foot">
+                <a class="more" n:href=":Front:FlyingSchool:">více o pilotní škole</a>
+            </div>
+        </div>
+
+        <div class="ad">
+            <div class="box">
+                <h3 class="cufon"><a n:href=":Front:Advertisement:">{_'Chcete originální reklamu?'}</a></h3>
+
+                <p>Pořiďte si originální reklamu. Při práci na Vaší zakázce může náš vrtulník nosit Vaše barvy.</p>
+
+            </div>
+            <div class="foot">
+                <a class="more" n:href=":Front:Advertisement:">více o reklamě na vrtulníku</a>
+            </div>
+        </div>
+
+        <div class="ad">
+            <div class="box">
+                <h3 class="cufon"><a n:href=":Front:SightseeingFlight:">{_'Hledáte jedinečný zážitek?'}</a></h3>
+
+                <p>Zažijte nevšední zážitek. Nastupte do našeho vrtulníku a užijte
+                    si jedinečný vyhlídkový let.</p>
+
+            </div>
+            <div class="foot">
+                <a class="more" n:href=":Front:SightseeingFlight:">více o vyhlídkových letech</a>
+            </div>
+        </div>
+
+        <div class="ad last">
+            <div class="box">
+                <h3 class="cufon"><a n:href=":Front:AirWork:">{_'Výškové práce jednoduše?'}</a></h3>
+
+                <p>Výškové, stavební a montážní práce za pár minut? Ano, vrtulníkem.</p>
+                <p>Nejnáročnější výškové práce nelze dělat jednodušeji.</p>
+
+            </div>
+            <div class="foot">
+                <a class="more" n:href=":Front:AirWork:">více o leteckých pracech</a>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div id="footer" n:block="footer">
+    <div class="content">
+        <div class="icons">
+            <a class="facebook" href="http://www.facebook.com/aerocentrum">facebook</a>
+            <a class="youtubei" href="http://www.youtube.com/user/Aerocentrum">youtube</a>
+             <a class="atom" n:href="Feed:atom">atom</a>
+
+            <div class="clear"></div>
+        </div>
+
+        <a class="ogurcak" href="http://petr.ogurcak.cz">tvorba internetových stránek</a>
+        <div class="clear"></div>
+    </div>
+</div>
+{/block}
+

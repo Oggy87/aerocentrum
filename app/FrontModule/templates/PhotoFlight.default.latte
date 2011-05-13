@@ -1,0 +1,43 @@
+{extends '@layout.classic.latte'}
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'Fotolety a filmování'|upper}</h1>
+
+    <p class="intro">Pro fotolety a filmování poskytujeme vrtulníky se zkušeným pilotem. Z našich vrtulníků můžete pořizovat
+    letecké záběry, fotografovat, pořizovat záběry pro zpravodajství a dopravní zpravodajství, atd.</p>
+    
+    {var $img = Helpers::image($video['thumb_path'],645,330,$video['name_'],TRUE,TRUE,FALSE,FALSE,'full')}
+    <a class="video_link" href="{$img->src}" name="{$video['video_path']}" title="{$video['name_']}" onclick="javascript:$.get({link Video:updateViews 'id'=>$video['id']},{}, function(payload) {});">
+        {$img}
+        <div class="play_button"></div>
+    </a>
+
+    {*{='gallery/video/snowboardaci-vyskok-z-vrtulniku.flv'|video:645,330}*}
+
+    <p> Zákazník si může fotografování či filmování z paluby vrtulníku zabezpečit sám nebo
+        jsme schopni zajistit profesionálního fotografa nebo kameramana. Spolupracujeme s několika renomovanými kameramany.</p>
+    <blockquote>
+        <p>Naše vrtulníky se podíleli při natáčení např. filmů Tmavomodrý svět, <a n:href="Article:default 'id' => 23">Snowborďáci</a>, Královský slib, Krev zmizelého, Mach a Šebestová, Hartova válka, leteckých záběrů do reklamních šotů
+            , televizního seriálu Pamět stromů, ...</p>
+    </blockquote>
+    <p class="tip">Máme k dispozici speciální konstrukce pro uchycení pro delší a náročnější scény.</p>
+    <p>Pro tyto účely filmování používáme vrtulníky <a n:href="R22:">R22</a> , <a n:href="R44:">R44</a> a <a n:href="MD520:">MD520</a> pro jejich vynikající manévrovací schopnosti a výborný výhled z kabiny.</p>
+
+
+    <div class="clear"></div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

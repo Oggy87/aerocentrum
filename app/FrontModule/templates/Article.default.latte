@@ -1,0 +1,138 @@
+{extends '@layout.classic.latte'}
+
+{block #main}
+<div class="main">
+    <h1 class="cufon">{$h1|upper}</h1>
+
+    <div class="intro">
+    {!$article['perex_html']|texy}
+    </div>
+
+    {if $article['perex_photo_path']}
+        {$article['perex_photo_path']|image:645,330,$article['heading'],TRUE,TRUE,FALSE,TRUE,'full'}
+    {/if}
+    <div class="article-text">
+    {!$article['text_html']|texy}
+    </div>
+    {if count($photos) > 0}
+    <div n:class="article-gallery">
+        <h2 class="cufon">{_'Fotky z této akce:'|upper}</h2>
+
+        <a class="prev browse left disabled"></a>
+
+        <div class="scrollable">
+
+            <div class="items">
+            {foreach $photos as $photo}
+                {var $modulus = $iterator->getCounter() % 4}
+                
+                {if $iterator->isFirst()}<div>{/if}
+                    {var bigphoto = Helpers::image($photo['picture_path'], 1200, 900, $photo['description_'], TRUE,FALSE,FALSE)}
+                    <a class="fancybox" rel="article-gallery" href="{$bigphoto->src}">
+                        {$photo['picture_path']|image:132,90,$photo['description_'],TRUE,TRUE,FALSE}
+                    </a>
+                {if $modulus == 0}
+                    {if $iterator->isLast()}</div>
+                    {else}</div><div>
+                    {/if}
+                {elseif $iterator->isLast()}
+                    </div>
+                {/if}
+            {/foreach}
+            </div>
+
+        </div>
+        
+        <a class="next browse right disabled"></a>
+
+        <div class="clear"></div>
+    </div>
+    {/if}
+
+    {if count($videos) > 0}
+    <div n:class="article-gallery,article-videos">
+        <h2 class="cufon">{_'Videa z této akce:'|upper}</h2>
+
+        <a class="prev browse left disabled"></a>
+
+        <div class="scrollable">
+
+            <div class="items">
+            {foreach $videos as $video}
+                {var $modulus = $iterator->getCounter() % 2}
+
+                {if $iterator->isFirst()}<div>{/if}
+                    {var $img = Helpers::image($video['thumb_path'],274,180,$video['name_'],FALSE,TRUE,FALSE)}
+                    {if Helpers::is_url($video['video_path'])}
+                    <a class="youtube" href="{$video['video_path']}" title="{$video['name_']}" onclick="javascript:$.get({link Video:updateViews 'id'=>$video['id']},{}, function(payload) {});">
+                        {$img}
+                        <div class="play_button"></div>
+                    </a>
+                    {else}
+                    <a class="video_link" href="{$img->src}" name="{$video['video_path']}" title="{$video['name_']}" onclick="javascript:$.get({link Video:updateViews 'id'=>$video['id']},{}, function(payload) {});">
+                        {$img}
+                        <div class="play_button"></div>
+                    </a>
+                    {/if}
+                {if $modulus == 0}
+                    {if $iterator->isLast()}</div>
+                    {else}</div><div>
+                    {/if}
+                {elseif $iterator->isLast()}
+                    </div>
+                {/if}
+            {/foreach}
+            </div>
+
+        </div>
+
+        <a class="next browse right disabled"></a>
+
+        <div class="clear"></div>
+    </div>
+    {/if}
+
+    {if count($presses) > 0}
+    <div n:class="article-gallery,article-videos">
+        <h2 class="cufon">{_'Napsali o této akci:'|upper}</h2>
+            <div class="press">
+                <div n:foreach="$presses as $press" n:class="article">
+                    <div><span class="date">{$press['date']|date}</span><span class="medium">{$press['medium']}</span></div>
+                    <div class="link"><a href="{$press['url']}" target="_blank" n:class="blank">{$press['title']}</a></div>
+                </div>
+            </div>
+    </div>
+    {/if}
+
+   {* <div class="hr"></div>
+    <iframe src="http://www.facebook.com/plugins/like.php?href={link //this}&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
+    *}
+</div>
+{/block}
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>
+
+{block #scripts}
+    {include #parent}
+    <script type="text/javascript">
+    head.ready(function() {
+
+        $(function() {
+            // initialize scrollable
+            $(".scrollable").scrollable();
+        });
+    });
+    </script>
+{/block}

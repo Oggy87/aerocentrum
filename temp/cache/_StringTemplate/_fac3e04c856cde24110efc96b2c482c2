@@ -1,0 +1,8 @@
+<?php //netteCache[01]000048a:1:{s:4:"time";s:21:"0.86576100 1302536559";}?><?php
+$_l = LatteMacros::initRuntime($template, NULL, '52ti0bjl76'); unset($_extends);
+
+if (isset($presenter, $control) && $presenter->isAjax() && $control->isControlInvalid()) {
+	return LatteMacros::renderSnippets($control, $_l, get_defined_vars());
+}
+?>
+<p>Bylo demontováno 7 starých a namontováno 7 nových stožárů VVN.</p>

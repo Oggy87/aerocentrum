@@ -1,0 +1,113 @@
+<table cellpadding="2" cellspacing="2" style="border: 1px solid #D9D9D9; font-size: 13px; border-collapse: collapse; width: 580px; font-family: Arial, Helvetica, sans-serif;">
+
+    <tr>
+        <td style="padding: 5px; float:left;" colspan="2"><h1 style="margin: 10px 0px; float:left;">Poptávkový formulář</h1><img style="margin: 10px;" src="logo.jpg" alt="Aerocentrum logo"/></td>
+    </tr>
+
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Jméno:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['name']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Email:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['email']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Společnost:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['company']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Telefon:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['phone']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Druh zakázky:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$services[$form['service']]}</td>
+    </tr>
+    {if $form['service'] == 0}
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Místo zakázky:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport1']['place']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Počet břemen:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport1']['amount']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Termín:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport1']['date']}</td>
+    </tr>
+    {/if}
+    {if $form['service'] == 1}
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Odkud:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport2']['from']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Kam:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport2']['where']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Druh nákladu:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport2']['type']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Váha nákladu:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport2']['weight']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Rozměry nákladu:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport2']['dimension']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Počet břemen:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport2']['amount']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Termín:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['transport1']['date']}</td>
+    </tr>
+    {/if}
+    {if $form['service'] == 2}
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Lokalita:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['photoflight']['where']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Rozsah filmování/focení:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['photoflight']['range']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Požadovaný počet osob na palubě:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['photoflight']['persons']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Termín:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['photoflight']['date']}</td>
+    </tr>
+    {/if}
+    {if $form['service'] == 3}
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Požadovaný počet osob:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['helitaxi']['persons']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Odkud:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['helitaxi']['from']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Kam:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['helitaxi']['where']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Termín:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['helitaxi']['date']}</td>
+    </tr>
+    <tr>
+        <td width="120" style="border: 1px solid #D9D9D9; padding: 5px; background-color: #f2f2f2;">Čas:</td>
+        <td align="left" style="border: 1px solid #D9D9D9; padding: 5px;">{$form['helitaxi']['time']}</td>
+    </tr>
+    {/if}
+</table>
+
+<p style="font-size: 10px; color: #c2c2c2; padding-top: 10px;">Tato zpráva byla odeslána automaticky na základě vyplněného formuláře.</p>

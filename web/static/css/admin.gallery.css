@@ -1,0 +1,317 @@
+#breadcrumbs {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: white;
+    
+    a {color:white;}
+}
+
+.controls {height: 41px;}
+
+.panel {
+    float:left;
+
+    .dialog-gallery {
+        margin: auto 0;
+    }
+}
+
+.gal-langs {
+    width:350px;
+    float:right;
+    padding: 0 ;
+
+    a.lang {
+        display: block;
+        width:20px; padding:12px; margin: 0 5px;
+        text-align:center;
+        background-color: #B1ACA9;
+        float:left;
+        @box_round(10px);
+
+
+            color:black;
+            font-weight:bolder;
+            text-decoration:none;
+
+            :hover {
+                color:white;
+            }
+
+
+    }
+
+    a.current {
+        background-color:  #38B6CC;
+    }
+}
+
+fieldset {
+    margin: 5px 0;
+    
+    legend {
+        padding: 5px 0;
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    table td {
+        margin: 5px 0;
+        padding: 5px;
+    }
+}
+
+#dialogFotos, #dialogSekceFotos {
+    width: 810px;
+    
+    .galleries {
+        
+    }
+
+    .fotos {
+        text-align: center;
+        
+        .foto {
+            float:left;
+            width:262px;
+            height:168px;
+            margin:5px 5px 0 0;
+            padding: 5px 0;
+            background-color: transparent;
+            border: 1px solid white;
+            @box_round(5px);
+
+            cursor: pointer;
+        }
+
+        #select,.ui-selected {
+            background-color: white;
+            @box_shadow(0;0;10px;#ffffff);
+        }
+
+        .ui-selecting {
+            background-color: silver;
+        }
+    }
+    .last {
+        margin-right: 0;
+    }
+}
+
+.tabs {
+    margin-bottom: 10px;
+
+    .tab {
+        float:left;
+        width:120px; padding:12px; margin: 0 5px;
+        text-align:center;
+        background-color: #B1ACA9;
+        float:left;
+        @box_round(10px);
+
+        a {
+            color:black;
+            font-weight:bolder;
+            text-decoration:none;
+
+            :hover {
+                color:white;
+            }
+        }
+    }
+
+    .current {
+        background-color:  #38B6CC;
+    }
+}
+
+.galleries {
+    margin: 10px 0px;
+
+    .gallery {
+        display: block;
+        width:270px;
+        height:180px;
+        margin:6px 6px 0 0;
+        float:left;
+        position:relative;
+        text-decoration:none;
+        text-align:center;
+        
+        .box {
+            background: transparent url('../images/blackTransparent.png') repeat;
+            position: absolute;
+            bottom:5px;
+            left:5px;
+            width:250px;
+            padding:5px;
+            color: white;
+            font-size:12px;
+            text-decoration:none;
+            text-align: left;
+        }
+    }
+    
+
+    .video {
+        display: block;
+        width:270px;
+        height:250px;
+        margin:6px 6px 0 0;
+        float:left;
+        position:relative;
+        text-decoration:none;
+        text-align:center;
+
+        a.edit {
+            display: block;
+            height: 20px;
+            color: white;
+            background-color: black;
+            text-decoration: underline;
+            :hover {
+                color: black;
+                background-color: white;
+                text-decoration: none;
+            }
+        }
+        .box {
+            display: block;
+            color: white;
+            background-color: black;
+            height: 45px;
+            padding: 0 5px 5px 5px;
+            overflow: hidden;
+        }
+
+    }
+    .last {
+        margin-right: 0;
+    }
+}
+
+.fotos {
+    margin: 10px 0;
+
+    .foto {
+        display: block;
+        width:545px;
+        margin:5px 5px 0 0;
+        float:left;
+        background-color: #B1ACA9;
+        @box_round(5px);
+
+        .img {
+            width:260px;
+            padding:5px;
+            height:170px;
+            float:left;
+            text-align:center;
+            position:relative;
+
+            a.rotate-clockwise {
+                width:135px;
+                height:90px;
+                position:absolute;
+                top:5px;
+                left:5px;
+            }
+            a.rotate-clockwise:hover {
+                background: transparent url('../images/admin.rotate-clockwise.png') no-repeat 5px 5px;
+            }
+
+            a.rotate-counterclockwise {
+                width:135px;
+                height:90px;
+                position:absolute;
+                top:5px;
+                right:5px;
+            }
+            a.rotate-counterclockwise:hover {
+                background: transparent url('../images/admin.rotate-counterclockwise.png') no-repeat 82px 5px;
+            }
+
+        }
+
+        .count {
+            text-align:right;
+
+        }
+
+        .form {
+            width:265px;
+            padding: 0 5px;
+            float:left;
+
+            textarea {
+                width:260px;
+                height:100px;
+            }
+        }
+    }
+    .last {
+        margin-right: 0;
+    }
+
+    .submitForm {
+        text-align: right;
+        margin:10px;
+    }
+}
+
+#pickfiles {
+    margin: 5px 0;
+
+    .ui-button-text {
+        padding:0.1em 1em 0.1em 2.1em;
+    }
+}
+
+#filelist {
+    padding: 5px 0;
+
+    table {
+        width:566px;
+
+        .name {
+            width: 350px;
+        }
+        .size {
+            width: 100px;
+        }
+        .percent {
+            width: 66px;
+        }
+        .status {
+            width: 50px;
+            background: transparent url('../images/admin.cross.png') no-repeat 50% 50%;
+        }
+        .done {
+            background: transparent url('../images/admin.accept.png') no-repeat 50% 50%;
+        }
+    }
+}
+
+.videoUpload {
+    margin:5px 5px 0 0;
+    padding: 10px;
+        background-color: #B1ACA9;
+        @box_round(5px);
+}
+
+.submit {
+    text-align: right;
+}
+
+.videoView {
+    background-color: #B1ACA9;
+    padding: 5px;
+    @box_round(5px);
+    margin-top: 10px;
+
+    .video {
+        width: 500px;
+        margin-right: 10px;
+        float: left;
+    }
+}

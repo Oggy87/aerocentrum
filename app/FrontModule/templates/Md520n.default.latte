@@ -1,0 +1,57 @@
+{extends '@layout.classic.latte'}
+
+{var $description = 'Čtyřmístný lehký vrtulník MD520n, výrobce MD Helicopters, vhodný pro přepravu osob, aerotaxi.'}
+{var $keywords = 'aerocentrum, vrtulník, md520n'}
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'Vrtulník MD520N'|upper}</h1>
+
+     <p class="intro cufon">Čtyřmístný lehký vrtulník, výrobce MD Helicopters, vhodný pro přepravu osob, aerotaxi,
+        filmování za obdobných podmínek jako <a n:href="R44:">vrtulník R44</a> s tím, že je zde více prostoru i na
+        velkou kameru a může letět případně i režisér,lety s podvěsem do 700 kg.
+    </p>
+    {='gallery/MD520.jpg'|image:645,330,'md-520n',TRUE,TRUE,FALSE}
+
+    <h2 class="cufon">Technické parametry vrtulníku:</h2>
+    <table>
+        <tr class="first">
+            <th>maximální rychlost</th>
+            <td>250 km/h</td>
+        </tr>
+        <tr>
+            <th>cestovní rychlost</th>
+            <td>244 km/h</td>
+        </tr>
+        <tr>
+            <th>maximální operační výška</th>
+            <td>6 096 m</td>
+        </tr>
+        <tr>
+            <th>maximální vzletová hmotnost</th>
+            <td>1 027 kg</td>
+        </tr>
+        <tr>
+            <th>užitečné zatížení</th>
+            <td>800 kg</td>
+        </tr>
+        <tr>
+            <th>osádka</th>
+            <td>pilot + 3</td>
+        </tr>
+    </table>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

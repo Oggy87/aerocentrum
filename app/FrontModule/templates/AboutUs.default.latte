@@ -1,0 +1,42 @@
+{extends '@layout.classic.latte'}
+
+{var $description = '>Letecká společnost AEROCENTRUM je jedničkou v oboru leteckých pracích. Náš tým tvoří tým špičkových odborníků s mnohaletou zkušeností.'}
+{var $keywords = 'aerocentrum, vrtulník, letecké práce, výškové práce'}
+
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'O společnosti Aerocentrum'|upper}</h1>
+
+    <p class="intro cufon">Letecká společnost AEROCENTRUM je jedničkou v oboru leteckých pracích. Náš tým tvoří tým
+    špičkových odborníků s mnohaletou zkušeností. </p>
+    
+    <p>Společnost AEROCENTRUM byla založena v roce 1993. Za dobu existence jsme vrtulníky Aerocentra postavili řadu
+        lyžařských lanovek, demontovali a montovali linie sloupů vysokého napětí, přiblížili desítky tisíc kubíků dřeva
+        v horských oblastech, povápnili dolomitickým vápencem tisíce hektarů lesních porostů, osadili mnoho antén,
+        technologií, GSM vysílačů, ...</p>
+    {='gallery/mi8-na-letisti.jpg'|image:645,330,'mi-8',TRUE,TRUE,FALSE,FALSE,'full'}
+    <blockquote>
+    <p>Výškové a letecké práce dodáváme zákazníkovy tzv. na klíč bez jakýchkoli dalších prostředníků či subdodavatelů.
+       Zákazník tak nemusí cokoli zajišťovat.</p>
+    </blockquote>
+
+    <div class="signature">
+        <div class="name cufon">ing. Lubomír Ogurčák</div>
+        <div class="fc cufon">{_'jednatel společnosti'|upper}</div>
+    </div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

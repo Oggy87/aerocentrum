@@ -1,0 +1,125 @@
+{var $title = 'fotogalerie'}
+
+{block #content}
+<div id="gallery">
+    <div class="top-h">
+    <h1>Fotogalerie</h1>
+    {block #breadcrumbs}
+    <div id="breadcrumbs">
+        <span>přehled galerií</span>
+        <span> » </span>
+        <span>webové</span>
+    </div>
+    {/block}
+    </div>
+    <div class="top-m">
+        <div class="tabs">
+            <div class="tab current">webové</div>
+            <a n:href="storage 'id' => NULL" n:class="tab">úložné</a>
+            <div class="clear"></div>
+        </div>
+        {*<div class="gal-langs">
+            <div class="h">Vyberte jazyk:</div>
+            <a n:foreach="$languages as $lang" n:href="this, 'lang' => $lang['id']" n:class="$presenter->linkCurrent ? current, lang">{$lang['id']}</a>
+            <div class="clear"></div>
+        </div>*}
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="controls">
+        <div class="panel">
+            <div class="dialog-gallery">Nová galerie</div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    {block #flashMessage}
+        {snippet flashMessage}
+	<div id="flashes">
+		{foreach $flashes as $flash}
+		<div class="flash {$flash->type}">{$flash->message}</div>
+		{/foreach}
+
+		<!--
+		<div class="flash info">Info message.</div>
+		<div class="flash success">Success message.</div>
+		<div class="flash warning">Warning message.</div>
+		<div class="flash error">Error message.</div>
+		<div class="flash validation">Validation message.</div>
+		-->
+
+	</div>
+	{/snippet}
+    {/block}
+
+    {control vpGallery}
+
+    {snippet gallery}
+    <div class="galleries">
+        {if $galleries->count('*') > 0}
+            {foreach $galleries as $gallery}
+            {var $modulus = $iterator->getCounter() % 4}
+            <a n:href="view, 'id' => $gallery['id']" n:class="gallery, $modulus == 0 ? last">
+                {if $gallery['photo_id']}
+                    {var $photo = GalleryModel::fetchPhoto($gallery['photo_id'])}
+                    {$photo['picture_path']|image:270,180,$gallery['name_'],TRUE,TRUE}
+                {/if}
+                <div class="box">
+                    <div class="date">{$gallery['date']|date}</div>
+                    <div class="name">{$gallery['name_']}</div>
+                </div>
+            </a>
+            {/foreach}
+        {else}
+            <div class="notice">Nebyla zatím vytvořena žádná galerie.</div>
+        {/if}
+        <div class="clear"></div>
+    </div>
+    {/snippet}
+
+    {control vpGallery}
+
+    <div id="dialog">
+    {snippet galleryForm}
+        {control galleryForm}
+    {/snippet}
+    </div>
+</div>
+{/block}
+
+{block #scripts}
+    {include #parent}
+    <script type="text/javascript">
+    head.ready(function() {
+    $(document).ready(function(){
+
+        $('.dialog-gallery')
+            .button({
+                icons: {
+                    primary: 'ui-icon-plusthick'
+                }
+            })
+            .click(function() {
+                        $('#dialog').dialog('open');
+            });
+
+        $("#dialog").dialog("destroy");
+
+        $("#dialog").dialog({
+                        autoOpen: false,
+                        modal: true,
+                        title: 'Galerie',
+                        width:700
+                      /*  buttons: {
+                            Uložit: function() {
+
+                                $(this).dialog("close");
+                            }
+                        }*/
+        });
+
+    });
+    });
+    </script>
+{/block}

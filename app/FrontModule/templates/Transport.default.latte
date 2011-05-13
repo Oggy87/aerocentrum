@@ -1,0 +1,24 @@
+{extends '@layout.classic.latte'}
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'Přeprava materiálu vrulníkem'|upper}</h1>
+
+    {='gallery/preprava-stromu-vrtulnikem.jpg'|image:645,330,'přeprava stromů vrtulníkem',TRUE,TRUE,FALSE,FALSE,'full'}
+   
+    <div class="clear"></div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>

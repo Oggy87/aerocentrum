@@ -1,0 +1,62 @@
+{extends '@layout.classic.latte'}
+
+{var $description = 'Provádíme letecké práce vrtulníky jako jsou transporty břemen, montáže klimatizací, stavba stožárů lanovek, fotolety a paravýsadky.'}
+{var $keywords = 'aerocentrum, vrtulníky, letecké práce, transport vrtulníkem, vápnění lesů, paravýsadky, letecká škola, servisní středisko'}
+
+<div class="main" n:block="main">
+    <h1 class="cufon">{_'Služby'|upper}</h1>
+
+    {='images/razitko_transport_letadla.png'|image:124,277,'mi-8',FALSE,FALSE,FALSE,FALSE,'imgfright'}
+    <p class="intro cufon"><strong>Náš tým špičkových odborníků</strong> vyškolených na ty nejnáročnější
+        ůkoly je připraven kdykoliv splnit Vaše představy.</p>
+    <ul>
+    <li>Provádíme
+        <a n:href="AirWork:"><strong>letecké práce vrtulníky</strong></a> jako jsou transporty břemen,
+        osazování technologických zařízení na budovy, stavby stožárů, lanovek,
+        těžba dřeva, fotolety, přepravní lety a paravýsadky.</li>
+    <li>Provozujeme <a n:href="FlyingSchool:"><strong>leteckou školu</strong></a>, ve které se i Vy můžete stát
+        pilotem <a n:href="R22:">vrtulníků Robinson R22</a> a <a n:href="R22:">R44</a>.</li>
+    <li>Nebo u nás můžete okusit krásu letu vrtulníkem na vlastní oči při
+        <a n:href="SightseeingFlight:"><strong>vyhlídkovém letu</strong></a>.</li>
+    <li>Další naší službou je <a n:href="ServiceCenter:"><strong>servisní středisko vrtulníků Robinson</strong></a>, ve kterém
+        poskytneme Vašemu vrtulníku plný servis.</li>
+    </ul>
+
+    <h2 class="cufon">{_'Přehled našich služeb'|upper}</h2>
+
+    <ul class="navigator">
+        <li><a class="cufon" n:href=":Front:Assembly:">{_'Stavby a montáže'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:Transport:">{_'Transport břemen'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:LimingForests:">{_'Vápnění lesů'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:TimberHarvesting:">{_'Těžba dřeva'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:AerialSpraying:">{_'Postřiky'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:InspectingFlights:">{_'Kontrolní lety'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:Paraschuting:">{_'Paravýsadky'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:PhotoFlight:">{_'Fotolety a filmování'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:Helitaxi:">{_'Helitaxi'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:FireFighting:">{_'Hašení požárů'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:Outdoor:">{_'Outdoorové akce'|upper}</a></li>
+        <li><a class="cufon" n:href=":Front:FlyingSchool:">{_'Letecká škola'|upper}</a></li>
+        <li><a class="cufon" n:href="ServiceCenter:">{_'Servisní středisko'|upper}</a></li>
+        <li><a class="cufon" n:href="SightseeingFlight:">{_'Vyhlídkové lety'|upper}</a></li>
+
+        <div class="clear"></div>
+    </ul>
+
+    <div class="clear"></div>
+</div>
+
+<div class="tips" n:block="next">
+    <h3 class="cufon">{_'Naše tipy kam pokračovat ... '|upper}</h3>
+    <ul>
+        <li>prohlédněte si, co vše jsme Vám <a n:href="Services:">schopni zajistit »</a></li>
+        <li>podívejte se na <a n:href="Reference:">některé z našich zakázek »</a></li>
+        <li>nechte si sestavit <a n:href="Demand:">nezávaznou kalkulaci »</a></li>
+    </ul>
+    <ul>
+        <li><a n:href="Contacts:">kontaktujte nás</a>, rádi Vám na Vaše dotazy zodpovíme »</li>
+        <li>prolistujte si naší <a n:href="PhotoVideo:">foto a video galerií</a> »</li>
+    </ul>
+
+    <div class="clear"></div>
+</div>
